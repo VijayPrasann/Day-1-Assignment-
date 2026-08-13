@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Div Example</title>
+</head>
+<body>
+
+    <div>
+        <h1>About Me</h1>
+        <p>I am a Computer Science Engineering graduate.</p>
+    </div>
+
+    <div>
+        <h2>My Skills</h2>
+        <p>Python</p>
+        <p>Java</p>
+        <p>HTML</p>
+    </div>
+
+    <div>
+        <h2>My Hobbies</h2>
+        <p>Watching movies</p>
+        <p>Playing games</p>
+    </div>
+
+</body>
+</html>

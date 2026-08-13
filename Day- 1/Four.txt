@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Profile</title>
+</head>
+
+<body>
+
+    <div>
+
+        <section>
+            <h1>Personal Information</h1>
+            <p>Name: Vijay Prasanna</p>
+            <p>Degree: B.E Computer Science</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>Java</p>
+            <p>Python</p>
+        </section>
+
+        <section>
+            <h2>Hobbies</h2>
+            <p>Programming</p>
+            <p>Learning new technologies</p>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

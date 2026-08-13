@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My HTML Page</title>
+</head>
+
+<body>
+
+    <h1>My Introduction</h1>
+
+    <p>My name is Vijay Prasanna.</p>
+
+    <p>I am a Computer Science graduate.</p>
+
+</body>
+
+</html>

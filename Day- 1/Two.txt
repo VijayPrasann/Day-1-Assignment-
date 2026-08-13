@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Student Profile</title>
+</head>
+
+<body>
+
+    <div>
+
+        <section>
+            <h1>About Me</h1>
+            <p>My name is Vijay Prasanna.</p>
+            <p>I am a Computer Science graduate.</p>
+        </section>
+
+        <section>
+            <h2>My Skills</h2>
+            <p>Python</p>
+            <p>Java</p>
+            <p>HTML</p>
+            <p>CSS</p>
+        </section>
+
+        <section>
+            <h2>My Goal</h2>
+            <p>I want to become a skilled software developer.</p>
+        </section>
+
+    </div>
+
+</body>
+
+</html>

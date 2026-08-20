@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Course Registration Form</title>
+</head>
+<body>
+
+    <h1>Online Course Registration Form</h1>
+
+    <form>
+
+        <!-- Student Name -->
+        <label>Student Name:</label>
+        <input type="text" name="studentName" required>
+        <br><br>
+
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <!-- Mobile Number -->
+        <label>Mobile Number:</label>
+        <input type="tel" name="mobile" required>
+        <br><br>
+
+        <!-- Date of Birth -->
+        <label>Date of Birth:</label>
+        <input type="date" name="dob">
+        <br><br>
+
+        <!-- Gender -->
+        <label>Gender:</label>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+
+        <!-- Select Course -->
+        <label>Select Course:</label>
+        <select name="course">
+            <option value="">-- Select Course --</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+        </select>
+        <br><br>
+
+        <!-- Learning Mode -->
+        <label>Learning Mode:</label>
+        <input type="radio" name="mode" value="Online"> Online
+        <input type="radio" name="mode" value="Offline"> Offline
+        <br><br>
+
+        <!-- Skills Known -->
+        <label>Skills Known:</label>
+        <input type="checkbox" name="skills" value="HTML"> HTML
+        <input type="checkbox" name="skills" value="CSS"> CSS
+        <input type="checkbox" name="skills" value="JavaScript"> JavaScript
+        <input type="checkbox" name="skills" value="Python"> Python
+        <br><br>
+
+        <!-- Course Start Date -->
+        <label>Course Start Date:</label>
+        <input type="date" name="startDate">
+        <br><br>
+
+        <!-- Upload Photo -->
+        <label>Upload Photo:</label>
+        <input type="file" name="photo">
+        <br><br>
+
+        <!-- Address -->
+        <label>Address:</label><br>
+        <textarea name="address" rows="5" cols="30"></textarea>
+        <br><br>
+
+        <!-- Country -->
+        <label>Country:</label>
+        <select name="country">
+            <option value="">-- Select Country --</option>
+            <option value="India">India</option>
+            <option value="USA">USA</option>
+            <option value="UK">United Kingdom</option>
+            <option value="Canada">Canada</option>
+            <option value="Australia">Australia</option>
+        </select>
+        <br><br>
+
+        <!-- Username -->
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <br><br>
+
+        <!-- Password -->
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br><br>
+
+        <!-- Confirm Password -->
+        <label>Confirm Password:</label>
+        <input type="password" name="confirmPassword" required>
+        <br><br>
+
+        <!-- Terms and Conditions -->
+        <input type="checkbox" name="terms" required>
+        <label>I agree to the Terms and Conditions</label>
+        <br><br>
+
+        <!-- Buttons -->
+        <input type="submit" value="Register">
+        <input type="reset" value="Clear">
+
+    </form>
+
+</body>
+</html>

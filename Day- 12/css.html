@@ -1,0 +1,310 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Position Assignment</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLING
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #f4f6f8;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        .task {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+        }
+
+
+        /* =========================
+           TASK 2
+           Relative & Absolute
+        ========================= */
+
+        .banner {
+            height: 200px;
+            background-color: #3498db;
+
+            /* Parent element */
+            position: relative;
+
+            margin-bottom: 60px;
+        }
+
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+
+            background-color: #2c3e50;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 5px solid white;
+            border-radius: 50%;
+
+            /* Position relative to banner */
+            position: absolute;
+
+            /* Bottom-left corner */
+            left: 20px;
+
+            /* Halfway outside the banner */
+            bottom: -40px;
+        }
+
+
+        /* =========================
+           TASK 3
+           Centered Block
+        ========================= */
+
+        .box {
+            width: 50%;
+
+            border: 2px solid #333;
+
+            padding: 20px;
+
+            /* Horizontal centering */
+            margin: 0 auto;
+
+            display: block;
+
+            background-color: #ecf0f1;
+
+            text-align: center;
+        }
+
+
+        /* =========================
+           TASK 4
+           Fixed Notification
+        ========================= */
+
+        .notification {
+            position: fixed;
+
+            bottom: 20px;
+            right: 20px;
+
+            background-color: #2c3e50;
+            color: white;
+
+            padding: 15px 25px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* Extra content for scrolling */
+
+        .content-box {
+            height: 400px;
+            padding: 20px;
+            margin-top: 20px;
+
+            background-color: #eaf2f8;
+
+            border: 1px solid #ccc;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>CSS Position Assignment</h1>
+
+
+    <!-- =================================
+         TASK 2
+         Relative & Absolute Position
+    ================================== -->
+
+    <div class="task">
+
+        <h2>Task 2: Profile Header</h2>
+
+        <p>
+            The banner uses
+            <strong>position: relative;</strong>
+            and the profile picture uses
+            <strong>position: absolute;</strong>.
+        </p>
+
+        <div class="banner">
+
+            <h2 style="color: white; padding: 30px;">
+                My Profile Banner
+            </h2>
+
+            <div class="profile-pic">
+                VP
+            </div>
+
+        </div>
+
+        <p>
+            The profile picture is positioned at the bottom-left
+            of the banner and hangs halfway outside using:
+        </p>
+
+        <code>
+            bottom: -40px;
+        </code>
+
+    </div>
+
+
+    <!-- =================================
+         TASK 3
+         Centered Block
+    ================================== -->
+
+    <div class="task">
+
+        <h2>Task 3: The Centered Block</h2>
+
+        <p>
+            The box has a width of 50% and is centered
+            horizontally using
+            <strong>margin: 0 auto;</strong>.
+        </p>
+
+        <div class="box">
+
+            <h3>Centered Box</h3>
+
+            <p>
+                This block is centered horizontally.
+            </p>
+
+        </div>
+
+        <p>
+            <strong>Why doesn't this center vertically?</strong>
+        </p>
+
+        <p>
+            <code>margin: 0 auto;</code> automatically distributes
+            the left and right margins. Therefore, it centers the
+            element horizontally, but it does not vertically center
+            the element.
+        </p>
+
+    </div>
+
+
+    <!-- =================================
+         TASK 4
+         Fixed Notification
+    ================================== -->
+
+    <div class="task">
+
+        <h2>Task 4: Pinned Notification</h2>
+
+        <p>
+            The notification below uses
+            <strong>position: fixed;</strong>.
+        </p>
+
+        <p>
+            Scroll the page and notice that the notification
+            remains in the bottom-right corner of the browser.
+        </p>
+
+
+        <div class="content-box">
+
+            <h3>Scrollable Content</h3>
+
+            <p>
+                This is additional content to make the page
+                scrollable.
+            </p>
+
+            <p>
+                CSS positioning allows elements to be positioned
+                relative to different parts of the webpage.
+            </p>
+
+            <p>
+                The fixed notification does not move when the
+                page is scrolled.
+            </p>
+
+        </div>
+
+
+        <div class="content-box">
+
+            <h3>More Content</h3>
+
+            <p>
+                Keep scrolling to test the fixed notification.
+            </p>
+
+            <p>
+                The notification will stay 20px from the bottom
+                and 20px from the right side of the browser.
+            </p>
+
+        </div>
+
+
+        <div class="content-box">
+
+            <h3>End of Page</h3>
+
+            <p>
+                You have reached the end of the example page.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- FIXED NOTIFICATION -->
+
+    <div class="notification">
+        🔔 Update Available.
+    </div>
+
+
+</body>
+
+</html>
+```

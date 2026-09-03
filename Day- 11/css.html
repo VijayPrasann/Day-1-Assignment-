@@ -1,0 +1,186 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CSS Display Assignment</title>
+
+    <style>
+
+        /* ============================
+           GENERAL STYLING
+        ============================ */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        .task {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+        }
+
+
+        /* ============================
+           TASK 1
+           Horizontal Menu
+        ============================ */
+
+        .menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            /* Removes whitespace between inline-block elements */
+            font-size: 0;
+        }
+
+        .menu li {
+            display: inline-block;
+
+            padding: 15px 25px;
+
+            background-color: #3498db;
+            color: white;
+
+            font-size: 16px;
+
+            border-right: 2px solid white;
+        }
+
+        .menu li:hover {
+            background-color: #2980b9;
+        }
+
+
+        /* ============================
+           TASK 3
+           Centered Block
+        ============================ */
+
+        .box {
+            width: 50%;
+
+            border: 2px solid #333;
+
+            padding: 20px;
+
+            /* Centers the block horizontally */
+            margin: 0 auto;
+
+            /* Div is a block element */
+            display: block;
+
+            background-color: #ecf0f1;
+
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>CSS Display Assignment</h1>
+
+
+    <!-- ============================
+         TASK 1
+    ============================ -->
+
+    <div class="task">
+
+        <h2>Task 1: Horizontal Menu with Inline-Block</h2>
+
+        <p>
+            Create a horizontal menu using
+            <strong>display: inline-block;</strong>
+        </p>
+
+
+        <ul class="menu"><li>Home</li><li>About</li><li>Services</li><li>Portfolio</li><li>Contact</li></ul>
+
+
+        <p>
+            The list items are changed from
+            <strong>display: list-item</strong>
+            to
+            <strong>display: inline-block</strong>.
+        </p>
+
+        <p>
+            The whitespace between the HTML elements is removed by
+            setting <strong>font-size: 0</strong> on the parent
+            <code>&lt;ul&gt;</code>.
+        </p>
+
+    </div>
+
+
+    <!-- ============================
+         TASK 3
+    ============================ -->
+
+    <div class="task">
+
+        <h2>Task 3: The Centered Block (The Old Way)</h2>
+
+        <p>
+            The box below has a width of 50% and is centered
+            horizontally using <strong>margin: 0 auto;</strong>.
+        </p>
+
+
+        <div class="box">
+
+            <h3>Centered Box</h3>
+
+            <p>
+                This is a 50% wide block element.
+                It is centered horizontally using
+                <strong>margin: 0 auto;</strong>.
+            </p>
+
+        </div>
+
+
+        <p>
+            <strong>Why doesn't this center vertically?</strong>
+        </p>
+
+        <p>
+            <code>margin: 0 auto;</code> automatically distributes
+            the left and right margins, so it centers the element
+            horizontally. It does not automatically distribute the
+            top and bottom space, so it does not vertically center
+            the element.
+        </p>
+
+    </div>
+
+
+</body>
+
+</html>
+```

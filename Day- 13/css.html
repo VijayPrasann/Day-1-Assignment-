@@ -1,0 +1,497 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flexbox Tasks</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLING
+        ========================= */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        .task {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+        }
+
+
+        /* =========================
+           TASK 1
+           CENTER A BOX
+        ========================= */
+
+        .center-container {
+            height: 300px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            background-color: #eaf2f8;
+        }
+
+        .center-box {
+            width: 150px;
+            height: 100px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #3498db;
+            color: white;
+
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+           TASK 2
+           HORIZONTAL NAVIGATION
+        ========================= */
+
+        .horizontal-nav {
+            display: flex;
+
+            justify-content: space-evenly;
+            align-items: center;
+
+            background-color: #2c3e50;
+
+            padding: 15px;
+        }
+
+        .horizontal-nav a {
+            color: white;
+            text-decoration: none;
+
+            padding: 10px 20px;
+        }
+
+        .horizontal-nav a:hover {
+            background-color: #34495e;
+        }
+
+
+        /* =========================
+           TASK 3
+           VERTICAL NAVIGATION
+        ========================= */
+
+        .vertical-nav {
+            height: 300px;
+            width: 200px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-evenly;
+            align-items: center;
+
+            background-color: #2c3e50;
+
+            margin: auto;
+        }
+
+        .vertical-nav a {
+            color: white;
+            text-decoration: none;
+
+            padding: 10px 20px;
+
+            width: 120px;
+            text-align: center;
+        }
+
+        .vertical-nav a:hover {
+            background-color: #34495e;
+        }
+
+
+        /* =========================
+           TASK 4
+           CARD LAYOUT
+        ========================= */
+
+        .card-container {
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1;
+
+            padding: 25px;
+
+            text-align: center;
+
+            background-color: #ecf0f1;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+        }
+
+
+        /* =========================
+           TASK 5
+           FLEX-WRAP PRODUCT CARDS
+        ========================= */
+
+        .product-container {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+            justify-content: center;
+        }
+
+        .product-card {
+            width: 180px;
+
+            padding: 20px;
+
+            text-align: center;
+
+            background-color: white;
+
+            border: 1px solid #ccc;
+
+            border-radius: 8px;
+
+            box-sizing: border-box;
+        }
+
+        .product-card .product-image {
+            height: 100px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            background-color: #eaf2f8;
+
+            margin-bottom: 15px;
+
+            font-size: 40px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+        }
+
+        .product-card p {
+            color: #555;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .horizontal-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .card-container {
+                flex-wrap: wrap;
+            }
+
+            .card {
+                flex: 1 1 200px;
+            }
+
+            .product-card {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>Flexbox Tasks</h1>
+
+
+    <!-- =========================
+         TASK 1
+    ========================= -->
+
+    <div class="task">
+
+        <h2>Task 1: Center a Box</h2>
+
+        <p>
+            Use Flexbox to center a single box
+            horizontally and vertically.
+        </p>
+
+        <div class="center-container">
+
+            <div class="center-box">
+                Centered Box
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TASK 2
+    ========================= -->
+
+    <div class="task">
+
+        <h2>Task 2: Horizontal Navigation Bar</h2>
+
+        <p>
+            Flexbox is used to arrange the navigation
+            links in a row and space them evenly.
+        </p>
+
+        <nav class="horizontal-nav">
+
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+
+        </nav>
+
+    </div>
+
+
+    <!-- =========================
+         TASK 3
+    ========================= -->
+
+    <div class="task">
+
+        <h2>Task 3: Vertical Navigation Bar</h2>
+
+        <p>
+            Flexbox is used with
+            <strong>flex-direction: column</strong>
+            to arrange links vertically.
+        </p>
+
+        <nav class="vertical-nav">
+
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+
+        </nav>
+
+    </div>
+
+
+    <!-- =========================
+         TASK 4
+    ========================= -->
+
+    <div class="task">
+
+        <h2>Task 4: Card Layout</h2>
+
+        <p>
+            Five cards are displayed in a row with
+            equal spacing between them.
+        </p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Card 1</h3>
+                <p>HTML</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 2</h3>
+                <p>CSS</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 3</h3>
+                <p>JavaScript</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 4</h3>
+                <p>Python</p>
+            </div>
+
+            <div class="card">
+                <h3>Card 5</h3>
+                <p>SQL</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TASK 5
+    ========================= -->
+
+    <div class="task">
+
+        <h2>Task 5: Product Cards with Wrapping</h2>
+
+        <p>
+            Six product cards are inside one Flexbox container.
+            On smaller screens, the cards automatically move
+            to the next line using <strong>flex-wrap</strong>.
+        </p>
+
+        <div class="product-container">
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    💻
+                </div>
+
+                <h3>Laptop</h3>
+
+                <p>Powerful laptop for work.</p>
+
+                <p class="price">₹50,000</p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    📱
+                </div>
+
+                <h3>Smartphone</h3>
+
+                <p>Modern smartphone.</p>
+
+                <p class="price">₹25,000</p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    🎧
+                </div>
+
+                <h3>Headphones</h3>
+
+                <p>Wireless headphones.</p>
+
+                <p class="price">₹2,500</p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    ⌚
+                </div>
+
+                <h3>Smart Watch</h3>
+
+                <p>Track your daily activity.</p>
+
+                <p class="price">₹4,000</p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    🖱️
+                </div>
+
+                <h3>Mouse</h3>
+
+                <p>Wireless computer mouse.</p>
+
+                <p class="price">₹800</p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    ⌨️
+                </div>
+
+                <h3>Keyboard</h3>
+
+                <p>Comfortable typing keyboard.</p>
+
+                <p class="price">₹1,500</p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+```

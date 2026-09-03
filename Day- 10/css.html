@@ -1,0 +1,415 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 10 - CSS Box Model Assignment</title>
+
+    <style>
+
+        /* General Styling */
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        h2 {
+            color: #34495e;
+        }
+
+        .task {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+        }
+
+
+        /* =========================
+           TASK 1
+           Width: 300px
+           Padding: 20px
+           Border: 10px green
+        ========================= */
+
+        .box1 {
+            width: 300px;
+            padding: 20px;
+            border: 10px solid green;
+            background-color: #eafbea;
+        }
+
+
+        /* =========================
+           TASK 2 - 5
+        ========================= */
+
+        .box2 {
+            width: 200px;
+            border: 2px solid red;
+            padding: 25px;
+            margin-left: 25px;
+            background-color: #fff5f5;
+        }
+
+
+        /* =========================
+           TASK 9
+           600px Content Box
+        ========================= */
+
+        .box3 {
+            width: 600px;
+            padding: 20px;
+            border: 2px solid black;
+            margin: 0 auto;
+            background-color: #eef5ff;
+        }
+
+
+        /* =========================
+           TASK 10
+           Equal Sized Buttons
+        ========================= */
+
+        .button-container {
+            width: 600px;
+            display: flex;
+            gap: 10px;
+            margin: auto;
+        }
+
+        .button {
+            flex: 1;
+            box-sizing: border-box;
+            padding: 20px 30px;
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           TASK 11
+           Different Padding
+        ========================= */
+
+        .box4 {
+            width: 300px;
+
+            padding-top: 40px;
+            padding-right: 10px;
+            padding-bottom: 20px;
+            padding-left: 50px;
+
+            border: 2px solid black;
+
+            background-color: #fff8dc;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <h1>📦 Day 10 CSS Box Model Assignment</h1>
+
+
+    <!-- TASK 1 -->
+
+    <div class="task">
+
+        <h2>Task 1: Width, Padding and Border</h2>
+
+        <p>
+            Set a width of 300px, padding of 20px,
+            and a 10px green border.
+        </p>
+
+        <div class="box1">
+
+            Width = 300px <br>
+            Padding = 20px <br>
+            Border = 10px solid green
+
+        </div>
+
+    </div>
+
+
+    <!-- TASK 2 - 5 -->
+
+    <div class="task">
+
+        <h2>Task 2 - 5: Width, Border, Padding and Margin</h2>
+
+        <p>Width of the div = 200px</p>
+
+        <p>Border = 2px solid red</p>
+
+        <p>Space between border and content = 25px</p>
+
+        <p>Space outside the left = 25px</p>
+
+
+        <div class="box2">
+
+            Width = 200px <br>
+            Border = 2px solid red <br>
+            Padding = 25px <br>
+            Left Margin = 25px
+
+        </div>
+
+    </div>
+
+
+    <!-- TASK 6 -->
+
+    <div class="task">
+
+        <h2>Task 6: Box Model Total Width Formula</h2>
+
+        <p>
+            For the default <strong>content-box</strong>:
+        </p>
+
+        <h3>
+            Total Width =
+            Content Width + Left Padding + Right Padding
+            + Left Border + Right Border
+        </h3>
+
+        <p>
+            Example:
+        </p>
+
+        <p>
+            300px + 20px + 20px + 10px + 10px
+        </p>
+
+        <h3>
+            Total Width = 360px
+        </h3>
+
+    </div>
+
+
+    <!-- TASK 7 -->
+
+    <div class="task">
+
+        <h2>Task 7: Calculate Total Height</h2>
+
+        <p>
+            Given:
+        </p>
+
+        <ul>
+            <li>Height = 50px</li>
+            <li>Padding = 15px</li>
+            <li>Border = 5px solid red</li>
+        </ul>
+
+        <p>
+            Total Height =
+            50 + 15 + 15 + 5 + 5
+        </p>
+
+        <h3>
+            Answer = 90px
+        </h3>
+
+    </div>
+
+
+    <!-- TASK 8 -->
+
+    <div class="task">
+
+        <h2>Task 8: Calculate Total Width</h2>
+
+        <p>
+            Given:
+        </p>
+
+        <ul>
+            <li>Width = 300px</li>
+            <li>Padding = 20px</li>
+            <li>Border = 5px</li>
+            <li>Margin = 10px</li>
+            <li>Box-sizing = content-box</li>
+        </ul>
+
+        <p>
+            Element Width =
+            300 + 20 + 20 + 5 + 5
+        </p>
+
+        <h3>
+            Element Width = 350px
+        </h3>
+
+        <p>
+            Including margin:
+        </p>
+
+        <p>
+            350 + 10 + 10 = 370px
+        </p>
+
+        <h3>
+            Total Horizontal Space = 370px
+        </h3>
+
+    </div>
+
+
+    <!-- TASK 9 -->
+
+    <div class="task">
+
+        <h2>Task 9: Center a 600px Div</h2>
+
+        <p>
+            Create a 600px wide content-box,
+            with 20px padding and 2px border.
+            Use margin to center it.
+        </p>
+
+
+        <div class="box3">
+
+            <h3>600px Content Box</h3>
+
+            <p>
+                This div is horizontally centered
+                using <strong>margin: 0 auto;</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- TASK 10 -->
+
+    <div class="task">
+
+        <h2>Task 10: Equal-Sized Buttons</h2>
+
+        <p>
+            Three buttons are placed side by side
+            inside a 600px container.
+        </p>
+
+
+        <div class="button-container">
+
+            <button class="button">
+                Button 1
+            </button>
+
+            <button class="button">
+                Button 2
+            </button>
+
+            <button class="button">
+                Button 3
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TASK 11 -->
+
+    <div class="task">
+
+        <h2>Task 11: Different Padding</h2>
+
+        <p>
+            Apply different padding to each side:
+        </p>
+
+        <ul>
+            <li>Top = 40px</li>
+            <li>Right = 10px</li>
+            <li>Bottom = 20px</li>
+            <li>Left = 50px</li>
+        </ul>
+
+
+        <div class="box4">
+
+            <strong>Different Padding</strong>
+
+            <p>
+                The text position changes because
+                each side has a different padding value.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUMMARY -->
+
+    <div class="task">
+
+        <h2>📌 CSS Box Model</h2>
+
+        <p>
+            The CSS Box Model consists of four parts:
+        </p>
+
+        <h3>
+            Content → Padding → Border → Margin
+        </h3>
+
+        <ul>
+
+            <li>
+                <strong>Content:</strong>
+                Actual text or element.
+            </li>
+
+            <li>
+                <strong>Padding:</strong>
+                Space between content and border.
+            </li>
+
+            <li>
+                <strong>Border:</strong>
+                Line surrounding the element.
+            </li>
+
+            <li>
+                <strong>Margin:</strong>
+                Space outside the border.
+            </li>
+
+        </ul>
+
+    </div>
+
+
+</body>
+
+</html>
+```

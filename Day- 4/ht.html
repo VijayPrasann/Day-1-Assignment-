@@ -1,0 +1,522 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HTML Semantic Elements and Lists</title>
+
+    <style>
+
+        /* General Styling */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        section,
+        article,
+        aside {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        h3 {
+            color: #34495e;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        /* Lists */
+
+        li {
+            margin: 8px 0;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 12px;
+        }
+
+        dd {
+            margin-left: 20px;
+        }
+
+        .task-title {
+            background-color: #1abc9c;
+            color: white;
+            padding: 12px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         1. PERSONAL PORTFOLIO PAGE
+    ====================================================== -->
+
+    <header>
+
+        <h1>Vijay Prasanna P</h1>
+
+        <p>💻 My Personal Portfolio</p>
+
+    </header>
+
+    <nav>
+
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#project">Project</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <main>
+
+        <!-- About Me -->
+
+        <section id="about">
+
+            <h2>About Me</h2>
+
+            <p>
+                Hello! I am Vijay Prasanna P, a 2026 graduate in
+                B.E. Computer Science and Engineering. I am interested
+                in web development, backend development and software
+                development.
+            </p>
+
+        </section>
+
+
+        <!-- Skills -->
+
+        <section id="skills">
+
+            <h2>Skills</h2>
+
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>Flask</li>
+                <li>SQL</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Project -->
+
+        <article id="project">
+
+            <h2>My Project</h2>
+
+            <h3>Real-Time AI Sperm Fragmentation Analysis</h3>
+
+            <p>
+                This project is an AI-based application designed to
+                analyze microscopic images and identify sperm
+                morphology and structural abnormalities.
+            </p>
+
+        </article>
+
+
+        <!-- Contact -->
+
+        <aside id="contact">
+
+            <h2>Contact Information</h2>
+
+            <p>Email: vijay@example.com</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Location: Thanjavur, Tamil Nadu</p>
+
+        </aside>
+
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 Vijay Prasanna P. All Rights Reserved.</p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         2. NEWS WEBSITE PAGE
+    ====================================================== -->
+
+    <h2 class="task-title">2. News Website Page</h2>
+
+
+    <header>
+
+        <h1>Daily News</h1>
+
+        <p>Your Trusted News Website</p>
+
+    </header>
+
+    <nav>
+
+        <a href="#">Home</a>
+        <a href="#">Technology</a>
+        <a href="#">Sports</a>
+        <a href="#">Education</a>
+        <a href="#">Business</a>
+
+    </nav>
+
+
+    <main>
+
+        <section>
+
+            <h2>Latest News</h2>
+
+            <!-- News Article 1 -->
+
+            <article>
+
+                <h3>New Technology Trends in 2026</h3>
+
+                <p>
+                    Artificial intelligence and modern technologies
+                    continue to change the way people work and learn.
+                </p>
+
+            </article>
+
+
+            <!-- News Article 2 -->
+
+            <article>
+
+                <h3>Students Explore New Learning Methods</h3>
+
+                <p>
+                    Students are increasingly using online platforms
+                    and digital tools to improve their technical skills.
+                </p>
+
+            </article>
+
+
+            <!-- News Article 3 -->
+
+            <article>
+
+                <h3>India Focuses on Digital Development</h3>
+
+                <p>
+                    Digital services and technology are becoming an
+                    important part of India's development.
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- News Sidebar -->
+
+        <aside>
+
+            <h2>Latest News</h2>
+
+            <ul>
+                <li>New technology launched</li>
+                <li>Sports tournament begins</li>
+                <li>New education program announced</li>
+                <li>Business growth increases</li>
+            </ul>
+
+        </aside>
+
+    </main>
+
+
+    <footer>
+
+        <p>&copy; 2026 Daily News. All Rights Reserved.</p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         3. STUDENT HOBBIES LIST
+    ====================================================== -->
+
+    <h2 class="task-title">3. Student Hobbies List</h2>
+
+    <section>
+
+        <h2>My Hobbies</h2>
+
+        <ul>
+
+            <li>Reading</li>
+            <li>Playing Cricket</li>
+            <li>Listening to Music</li>
+            <li>Drawing</li>
+            <li>Travelling</li>
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         4. DAILY ROUTINE
+    ====================================================== -->
+
+    <h2 class="task-title">4. Daily Routine</h2>
+
+    <section>
+
+        <h2>My Daily Routine</h2>
+
+        <ol>
+
+            <li>Wake up</li>
+            <li>Exercise</li>
+            <li>Have breakfast</li>
+            <li>Attend class</li>
+            <li>Study</li>
+            <li>Go to sleep</li>
+
+        </ol>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         5. FOOD MENU
+    ====================================================== -->
+
+    <h2 class="task-title">5. Food Menu</h2>
+
+    <section>
+
+        <h2>Restaurant Food Menu</h2>
+
+        <ol>
+
+            <!-- Starters -->
+
+            <li>
+                <strong>Starters</strong>
+
+                <ul>
+                    <li>Paneer Tikka</li>
+                    <li>French Fries</li>
+                    <li>Vegetable Soup</li>
+                </ul>
+
+            </li>
+
+
+            <!-- Main Course -->
+
+            <li>
+                <strong>Main Course</strong>
+
+                <ul>
+                    <li>Veg Fried Rice</li>
+                    <li>Chicken Biryani</li>
+                    <li>Paneer Butter Masala</li>
+                </ul>
+
+            </li>
+
+
+            <!-- Desserts -->
+
+            <li>
+                <strong>Desserts</strong>
+
+                <ul>
+                    <li>Ice Cream</li>
+                    <li>Gulab Jamun</li>
+                    <li>Chocolate Cake</li>
+                </ul>
+
+            </li>
+
+
+            <!-- Drinks -->
+
+            <li>
+                <strong>Drinks</strong>
+
+                <ul>
+                    <li>Fresh Lime Juice</li>
+                    <li>Orange Juice</li>
+                    <li>Milkshake</li>
+                </ul>
+
+            </li>
+
+        </ol>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         6. COURSE DETAILS
+    ====================================================== -->
+
+    <h2 class="task-title">6. Course Details</h2>
+
+    <section>
+
+        <h2>Course Categories</h2>
+
+        <ul>
+
+            <li>
+                <strong>Web Development</strong>
+
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+
+            </li>
+
+
+            <li>
+                <strong>Backend Development</strong>
+
+                <ul>
+                    <li>C#</li>
+                    <li>ASP.NET</li>
+                    <li>SQL</li>
+                </ul>
+
+            </li>
+
+
+            <li>
+                <strong>Database</strong>
+
+                <ul>
+                    <li>MySQL</li>
+                    <li>SQL Server</li>
+                </ul>
+
+            </li>
+
+        </ul>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         7. EMPLOYEE INFORMATION
+    ====================================================== -->
+
+    <h2 class="task-title">7. Employee Information</h2>
+
+    <section>
+
+        <h2>Employee Details</h2>
+
+        <dl>
+
+            <dt>Employee Name</dt>
+            <dd>Vijay Kumar</dd>
+
+
+            <dt>Employee ID</dt>
+            <dd>EMP1001</dd>
+
+
+            <dt>Department</dt>
+            <dd>Information Technology</dd>
+
+
+            <dt>Designation</dt>
+            <dd>Software Developer</dd>
+
+
+            <dt>Skills</dt>
+            <dd>HTML, CSS, JavaScript, Python, SQL</dd>
+
+        </dl>
+
+    </section>
+
+
+    <footer>
+
+        <p>&copy; 2026 HTML Assignment</p>
+
+    </footer>
+
+
+</body>
+</html>
+```

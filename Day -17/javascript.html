@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 17 - JavaScript Basics</title>
+</head>
+
+<body>
+
+    <h1>Day 17 - Introduction to JavaScript</h1>
+
+    <h2>1. Variables using var, let and const</h2>
+
+    <p id="variables"></p>
+
+
+    <h2>2. JavaScript Data Types</h2>
+
+    <p id="datatypes"></p>
+
+
+    <h2>3. JavaScript Operators</h2>
+
+    <p id="operators"></p>
+
+
+    <script>
+
+        // =====================================
+        // 1. Variables using var, let and const
+        // =====================================
+
+        var name = "Vijay";
+        let age = 22;
+        const college = "Saveetha School of Engineering";
+
+        document.getElementById("variables").innerHTML =
+            "Name: " + name + "<br>" +
+            "Age: " + age + "<br>" +
+            "College: " + college;
+
+
+        // =====================================
+        // 2. Different Data Types
+        // =====================================
+
+        let studentName = "Vijay";       // String
+        let marks = 85;                  // Number
+        let isStudent = true;            // Boolean
+        let address = null;              // Null
+        let result;                      // Undefined
+
+        document.getElementById("datatypes").innerHTML =
+            "String: " + studentName + "<br>" +
+            "Number: " + marks + "<br>" +
+            "Boolean: " + isStudent + "<br>" +
+            "Null: " + address + "<br>" +
+            "Undefined: " + result;
+
+
+        // =====================================
+        // 3. JavaScript Operators
+        // =====================================
+
+        let a = 10;
+        let b = 5;
+
+        let addition = a + b;
+        let subtraction = a - b;
+        let multiplication = a * b;
+        let division = a / b;
+        let remainder = a % b;
+
+        let equal = (a == "10");
+        let strictEqual = (a === "10");
+
+        let andOperator = (a > 5 && b < 10);
+        let orOperator = (a > 20 || b < 10);
+
+        document.getElementById("operators").innerHTML =
+            "a = " + a + ", b = " + b + "<br><br>" +
+
+            "Addition (+): " + addition + "<br>" +
+            "Subtraction (-): " + subtraction + "<br>" +
+            "Multiplication (*): " + multiplication + "<br>" +
+            "Division (/): " + division + "<br>" +
+            "Remainder (%): " + remainder + "<br><br>" +
+
+            "Equal (==): " + equal + "<br>" +
+            "Strict Equal (===): " + strictEqual + "<br>" +
+            "AND (&&): " + andOperator + "<br>" +
+            "OR (||): " + orOperator;
+
+    </script>
+
+</body>
+</html>

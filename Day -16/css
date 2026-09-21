@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hover Effects</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .box {
+            width: 250px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #333;
+            border-radius: 10px;
+        }
+
+        /* 1. Basic Hover Color Change with Transition */
+        .color-box {
+            background-color: lightblue;
+            transition: 0.5s;
+        }
+
+        .color-box:hover {
+            background-color: orange;
+            color: white;
+        }
+
+
+        /* 2. Grow Element on Hover */
+        .grow-box {
+            background-color: lightgreen;
+            transition: 0.5s;
+        }
+
+        .grow-box:hover {
+            transform: scale(1.2);
+        }
+
+
+        /* 3. Change Color, Size and Shadow on Hover */
+        .shadow-box {
+            background-color: lightcoral;
+            transition: 0.5s;
+        }
+
+        .shadow-box:hover {
+            background-color: purple;
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0px 10px 20px gray;
+        }
+
+
+        /* 4. Reveal Content with Opacity and Transition */
+        .reveal-box {
+            background-color: lightyellow;
+        }
+
+        .hidden-content {
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .reveal-box:hover .hidden-content {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Hover Effects</h1>
+
+    <!-- 1. Basic Hover Color Change -->
+    <div class="box color-box">
+        <h2>Color Change</h2>
+        <p>Move your mouse over me</p>
+    </div>
+
+    <!-- 2. Grow on Hover -->
+    <div class="box grow-box">
+        <h2>Grow Effect</h2>
+        <p>Move your mouse over me</p>
+    </div>
+
+    <!-- 3. Color, Size and Shadow -->
+    <div class="box shadow-box">
+        <h2>Multiple Effects</h2>
+        <p>Color + Size + Shadow</p>
+    </div>
+
+    <!-- 4. Reveal Content -->
+    <div class="box reveal-box">
+        <h2>Reveal Content</h2>
+
+        <div class="hidden-content">
+            <p>This content appears when you hover!</p>
+        </div>
+    </div>
+
+</body>
+</html>

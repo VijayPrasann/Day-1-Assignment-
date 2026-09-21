@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conditional Statements Assignment</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Conditional Statements</h1>
+
+    <h2>1. Positive, Negative or Zero</h2>
+    <p id="question1"></p>
+
+    <h2>2. Even or Odd</h2>
+    <p id="question2"></p>
+
+    <h2>3. Voting Eligibility</h2>
+    <p id="question3"></p>
+
+    <h2>4. Largest of Two Numbers</h2>
+    <p id="question4"></p>
+
+    <h2>5. Student Grade</h2>
+    <p id="question5"></p>
+
+    <h2>6. Largest of Three Numbers</h2>
+    <p id="question6"></p>
+
+    <h2>7. Leap Year</h2>
+    <p id="question7"></p>
+
+    <h2>8. Driving License Eligibility</h2>
+    <p id="question8"></p>
+
+    <h2>9. Divisible by 3 and 5</h2>
+    <p id="question9"></p>
+
+    <h2>10. Simple Calculator</h2>
+    <p id="question10"></p>
+
+
+    <script>
+
+        // ==========================================
+        // 1. Positive, Negative or Zero
+        // ==========================================
+
+        let number1 = 10;
+
+        if (number1 > 0) {
+            document.getElementById("question1").innerHTML =
+                number1 + " is Positive";
+        }
+        else if (number1 < 0) {
+            document.getElementById("question1").innerHTML =
+                number1 + " is Negative";
+        }
+        else {
+            document.getElementById("question1").innerHTML =
+                "The number is Zero";
+        }
+
+
+        // ==========================================
+        // 2. Even or Odd
+        // ==========================================
+
+        let number2 = 7;
+
+        if (number2 % 2 == 0) {
+            document.getElementById("question2").innerHTML =
+                number2 + " is Even";
+        }
+        else {
+            document.getElementById("question2").innerHTML =
+                number2 + " is Odd";
+        }
+
+
+        // ==========================================
+        // 3. Voting Eligibility
+        // ==========================================
+
+        let age1 = 20;
+
+        if (age1 >= 18) {
+            document.getElementById("question3").innerHTML =
+                "Age: " + age1 + "<br>Eligible to vote";
+        }
+        else {
+            document.getElementById("question3").innerHTML =
+                "Age: " + age1 + "<br>Not eligible to vote";
+        }
+
+
+        // ==========================================
+        // 4. Largest of Two Numbers
+        // ==========================================
+
+        let number3 = 25;
+        let number4 = 40;
+
+        if (number3 > number4) {
+            document.getElementById("question4").innerHTML =
+                number3 + " is the largest";
+        }
+        else {
+            document.getElementById("question4").innerHTML =
+                number4 + " is the largest";
+        }
+
+
+        // ==========================================
+        // 5. Student Grade
+        // ==========================================
+
+        let marks = 85;
+        let grade;
+
+        if (marks >= 90) {
+            grade = "A+";
+        }
+        else if (marks >= 80) {
+            grade = "A";
+        }
+        else if (marks >= 70) {
+            grade = "B";
+        }
+        else if (marks >= 60) {
+            grade = "C";
+        }
+        else if (marks >= 50) {
+            grade = "D";
+        }
+        else {
+            grade = "F";
+        }
+
+        document.getElementById("question5").innerHTML =
+            "Marks: " + marks + "<br>Grade: " + grade;
+
+
+        // ==========================================
+        // 6. Largest of Three Numbers
+        // ==========================================
+
+        let number5 = 30;
+        let number6 = 80;
+        let number7 = 50;
+
+        if (number5 >= number6 && number5 >= number7) {
+            document.getElementById("question6").innerHTML =
+                number5 + " is the largest";
+        }
+        else if (number6 >= number5 && number6 >= number7) {
+            document.getElementById("question6").innerHTML =
+                number6 + " is the largest";
+        }
+        else {
+            document.getElementById("question6").innerHTML =
+                number7 + " is the largest";
+        }
+
+
+        // ==========================================
+        // 7. Leap Year
+        // ==========================================
+
+        let year = 2024;
+
+        if ((year % 400 == 0) ||
+            (year % 4 == 0 && year % 100 != 0)) {
+
+            document.getElementById("question7").innerHTML =
+                year + " is a Leap Year";
+        }
+        else {
+            document.getElementById("question7").innerHTML =
+                year + " is not a Leap Year";
+        }
+
+
+        // ==========================================
+        // 8. Driving License Eligibility
+        // ==========================================
+
+        let age2 = 20;
+
+        if (age2 >= 18) {
+            document.getElementById("question8").innerHTML =
+                "Age: " + age2 + "<br>Eligible for driving license";
+        }
+        else {
+            document.getElementById("question8").innerHTML =
+                "Age: " + age2 + "<br>Not eligible for driving license";
+        }
+
+
+        // ==========================================
+        // 9. Divisible by Both 3 and 5
+        // ==========================================
+
+        let number8 = 30;
+
+        if (number8 % 3 == 0 && number8 % 5 == 0) {
+            document.getElementById("question9").innerHTML =
+                number8 + " is divisible by both 3 and 5";
+        }
+        else {
+            document.getElementById("question9").innerHTML =
+                number8 + " is not divisible by both 3 and 5";
+        }
+
+
+        // ==========================================
+        // 10. Simple Calculator
+        // ==========================================
+
+        let number9 = 20;
+        let number10 = 5;
+        let operator = "+";
+        let result;
+
+        if (operator == "+") {
+            result = number9 + number10;
+        }
+        else if (operator == "-") {
+            result = number9 - number10;
+        }
+        else if (operator == "*") {
+            result = number9 * number10;
+        }
+        else if (operator == "/") {
+            result = number9 / number10;
+        }
+        else {
+            result = "Invalid operator";
+        }
+
+        document.getElementById("question10").innerHTML =
+            number9 + " " + operator + " " + number10 +
+            " = " + result;
+
+    </script>
+
+</body>
+</html>

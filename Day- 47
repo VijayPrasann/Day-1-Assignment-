@@ -1,0 +1,108 @@
+CREATE TABLE IF NOT EXISTS Department (
+    DepartmentID INT PRIMARY KEY,
+    DepartmentName VARCHAR(50),
+    Location VARCHAR(50)
+);
+
+-- ============================================================
+-- PART 4: DML - UPDATE
+-- Note: Salary and other columns below use their original names
+-- except Employee.Salary and Student.Marks, which were renamed.
+-- ============================================================
+
+UPDATE Employee
+SET MonthlySalary = 40000
+WHERE EmployeeID = 1;
+
+UPDATE Customer
+SET CustomerCity = 'Coimbatore'
+WHERE CustomerID = 1;
+
+UPDATE Student
+SET TotalMarks = 95
+WHERE StudentID = 1;
+
+UPDATE Staff
+SET Salary = 30000
+WHERE StaffID = 2;
+
+UPDATE Product
+SET Price = 55000
+WHERE ProductID = 1;
+
+-- View updated data
+SELECT * FROM Employee;
+SELECT * FROM Customer;
+SELECT * FROM Student;
+SELECT * FROM Staff;
+SELECT * FROM Product;
+
+-- ============================================================
+-- PART 5: DML - DELETE SPECIFIC RECORDS
+-- Delete only the additional sample row inserted below.
+-- ============================================================
+
+INSERT IGNORE INTO Employee
+(EmployeeID, EmployeeName, Age, Department, MonthlySalary)
+VALUES (6, 'Manoj', 25, 'IT', 38000);
+
+INSERT IGNORE INTO Customer
+(CustomerID, CustomerName, Email, CustomerCity, Phone)
+VALUES (6, 'Nisha', 'nisha@gmail.com', 'Salem', '9876543215');
+
+INSERT IGNORE INTO Student
+(StudentID, StudentName, Age, Department, TotalMarks)
+VALUES (6, 'Manoj', 22, 'CSE', 80);
+
+INSERT IGNORE INTO Staff
+(StaffID, StaffName, StaffRole, Salary, Email)
+VALUES (6, 'Lakshmi', 'Clerk', 27000, 'lakshmi@gmail.com');
+
+INSERT IGNORE INTO Product
+(ProductID, ProductName, Category, Price, StockQuantity)
+VALUES (6, 'Printer', 'Electronics', 8000, 12);
+
+DELETE FROM Employee WHERE EmployeeID = 6;
+DELETE FROM Customer WHERE CustomerID = 6;
+DELETE FROM Student WHERE StudentID = 6;
+DELETE FROM Staff WHERE StaffID = 6;
+DELETE FROM Product WHERE ProductID = 6;
+
+-- ============================================================
+-- PART 6: FINAL VERIFICATION
+-- ============================================================
+
+SELECT * FROM Employee;
+SELECT * FROM Customer;
+SELECT * FROM Student;
+SELECT * FROM Staff;
+SELECT * FROM Product;
+
+DESCRIBE Employee;
+DESCRIBE Customer;
+DESCRIBE Student;
+DESCRIBE Staff;
+DESCRIBE Product;
+
+-- ============================================================
+-- PART 7: OPTIONAL DESTRUCTIVE DDL EXAMPLES
+-- Do NOT run these unless you intend to clear/delete tables.
+-- Run each command separately only when ready.
+-- ============================================================
+
+-- TRUNCATE removes every row but keeps the table structure.
+-- TRUNCATE TABLE Employee;
+-- TRUNCATE TABLE Customer;
+-- TRUNCATE TABLE Student;
+-- TRUNCATE TABLE Staff;
+-- TRUNCATE TABLE Product;
+
+-- DROP removes the table and its structure completely.
+-- DROP TABLE Employee;
+-- DROP TABLE Customer;
+-- DROP TABLE Student;
+-- DROP TABLE Staff;
+-- DROP TABLE Product;
+-- DROP TABLE Department;
+
+-- END OF ASSIGNMENT

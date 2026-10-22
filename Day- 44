@@ -1,0 +1,222 @@
+```jsx
+import { useState } from "react";
+import "./index.css";
+
+function App() {
+  const [following, setFollowing] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  // Product details
+  const products = [
+    {
+      id: 1,
+      name: "Laptop",
+      price: 55000,
+      rating: 4.5,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Laptop",
+    },
+    {
+      id: 2,
+      name: "Smartphone",
+      price: 25000,
+      rating: 4.3,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Smartphone",
+    },
+    {
+      id: 3,
+      name: "Headphones",
+      price: 2000,
+      rating: 4.2,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Headphones",
+    },
+    {
+      id: 4,
+      name: "Smart Watch",
+      price: 3500,
+      rating: 4.4,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Smart+Watch",
+    },
+    {
+      id: 5,
+      name: "Keyboard",
+      price: 1500,
+      rating: 4.1,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Keyboard",
+    },
+    {
+      id: 6,
+      name: "Speaker",
+      price: 3000,
+      rating: 4.6,
+      image: "https://placehold.co/400x250/e2e8f0/1e293b?text=Speaker",
+    },
+  ];
+
+  // Add product to cart
+  function addToCart(product) {
+    setCart([...cart, product]);
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-100 text-gray-800">
+
+      {/* Task 2: Responsive Navbar */}
+      <nav className="bg-blue-700 text-white shadow-lg">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-6 py-4">
+
+          <a href="#home" className="text-2xl font-bold">
+            MyShop
+          </a>
+
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <a href="#home" className="hover:text-yellow-300">
+              Home
+            </a>
+
+            <a href="#profile" className="hover:text-yellow-300">
+              About
+            </a>
+
+            <a href="#products" className="hover:text-yellow-300">
+              Services
+            </a>
+
+            <a href="#contact" className="hover:text-yellow-300">
+              Contact
+            </a>
+
+            <button className="rounded-lg bg-white px-4 py-2 font-semibold text-blue-700 hover:bg-gray-200">
+              Login
+            </button>
+          </div>
+
+        </div>
+      </nav>
+
+
+      {/* Page Heading */}
+      <section id="home" className="px-4 py-8 text-center">
+        <h1 className="text-3xl font-bold text-blue-700 sm:text-4xl">
+          Welcome to MyShop
+        </h1>
+
+        <p className="mt-2 text-gray-600">
+          Discover our products and meet our team.
+        </p>
+      </section>
+
+
+      {/* Task 1: Profile Card */}
+      <section id="profile" className="px-4 py-6">
+
+        <h2 className="mb-6 text-center text-2xl font-bold">
+          Profile Card
+        </h2>
+
+        <div className="mx-auto max-w-sm rounded-2xl bg-white p-6 text-center shadow-lg">
+
+          <img
+            src="https://placehold.co/160x160/cbd5e1/1e293b?text=Profile"
+            alt="Profile"
+            className="mx-auto h-28 w-28 rounded-full border-4 border-blue-500 object-cover"
+          />
+
+          <h3 className="mt-4 text-xl font-bold">
+            Rahul Kumar
+          </h3>
+
+          <p className="mt-1 font-medium text-blue-600">
+            Frontend Developer
+          </p>
+
+          <p className="mt-3 text-sm leading-6 text-gray-600">
+            I enjoy creating responsive websites using React,
+            JavaScript, and Tailwind CSS.
+          </p>
+
+          <button
+            onClick={() => setFollowing(!following)}
+            className="mt-5 rounded-lg bg-blue-600 px-6 py-2 text-white hover:bg-blue-700"
+          >
+            {following ? "Following" : "Follow"}
+          </button>
+
+        </div>
+      </section>
+
+
+      {/* Task 3: Product Page */}
+      <section id="products" className="mx-auto max-w-7xl px-4 py-10">
+
+        <h2 className="mb-2 text-center text-3xl font-bold">
+          Our Products
+        </h2>
+
+        <p className="mb-8 text-center text-gray-600">
+          Choose your favourite products.
+        </p>
+
+        <p className="mb-6 text-right font-semibold text-blue-700">
+          Cart Items: {cart.length}
+        </p>
+
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="overflow-hidden rounded-xl bg-white shadow-md transition hover:-translate-y-1 hover:shadow-xl"
+            >
+
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-48 w-full object-cover"
+              />
+
+              <div className="p-5">
+
+                <h3 className="text-xl font-bold">
+                  {product.name}
+                </h3>
+
+                <p className="mt-2 text-lg font-semibold text-blue-700">
+                  ₹{product.price.toLocaleString("en-IN")}
+                </p>
+
+                <p className="mt-2 text-yellow-600">
+                  ★ {product.rating} / 5
+                </p>
+
+                <button
+                  onClick={() => addToCart(product)}
+                  className="mt-4 w-full rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                >
+                  Add to Cart
+                </button>
+
+              </div>
+            </div>
+          ))}
+
+        </div>
+      </section>
+
+
+      {/* Footer */}
+      <footer
+        id="contact"
+        className="mt-8 bg-gray-900 px-4 py-6 text-center text-white"
+      >
+        <p>Contact: support@myshop.com</p>
+        <p className="mt-2 text-sm text-gray-400">
+          © 2026 MyShop. All rights reserved.
+        </p>
+      </footer>
+
+    </div>
+  );
+}
+
+export default App;
+```

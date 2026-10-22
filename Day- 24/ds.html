@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class and Object Tasks</title>
+</head>
+
+<body>
+
+    <h1>Class & Object Tasks</h1>
+
+    <script>
+
+        // =====================================================
+        // 1. Student Class
+        // =====================================================
+
+        class Student {
+
+            constructor(rollNo, name, marks) {
+                this.rollNo = rollNo;
+                this.name = name;
+                this.marks = marks;
+            }
+
+            display() {
+                console.log("1. Student Details");
+                console.log("Roll No:", this.rollNo);
+                console.log("Name:", this.name);
+                console.log("Marks:", this.marks);
+            }
+        }
+
+        let student1 = new Student(101, "Vijay", 85);
+
+        student1.display();
+
+
+        // =====================================================
+        // 2. Employee Class
+        // =====================================================
+
+        class Employee {
+
+            input(empId, empName, designation, salary) {
+                this.empId = empId;
+                this.empName = empName;
+                this.designation = designation;
+                this.salary = salary;
+            }
+
+            display() {
+                console.log("2. Employee Details");
+                console.log("Employee ID:", this.empId);
+                console.log("Employee Name:", this.empName);
+                console.log("Designation:", this.designation);
+                console.log("Salary:", this.salary);
+            }
+        }
+
+        let employee1 = new Employee();
+
+        employee1.input(1001, "Rahul", "Software Developer", 35000);
+
+        employee1.display();
+
+
+        // =====================================================
+        // 3. Customer Class
+        // =====================================================
+
+        class Customer {
+
+            input(CustomerId, CName, Mobile, Address) {
+                this.CustomerId = CustomerId;
+                this.CName = CName;
+                this.Mobile = Mobile;
+                this.Address = Address;
+            }
+
+            display() {
+                console.log("3. Customer Details");
+                console.log("Customer ID:", this.CustomerId);
+                console.log("Customer Name:", this.CName);
+                console.log("Mobile:", this.Mobile);
+                console.log("Address:", this.Address);
+            }
+        }
+
+        let customer1 = new Customer();
+
+        customer1.input(
+            501,
+            "Arun",
+            "9876543210",
+            "Chennai"
+        );
+
+        customer1.display();
+
+
+        // =====================================================
+        // 4. Staff Class
+        // =====================================================
+
+        class Staff {
+
+            input(StaffId, SName, Mobile, Email, department, Address) {
+                this.StaffId = StaffId;
+                this.SName = SName;
+                this.Mobile = Mobile;
+                this.Email = Email;
+                this.department = department;
+                this.Address = Address;
+            }
+
+            display() {
+                console.log("4. Staff Details");
+                console.log("Staff ID:", this.StaffId);
+                console.log("Staff Name:", this.SName);
+                console.log("Mobile:", this.Mobile);
+                console.log("Email:", this.Email);
+                console.log("Department:", this.department);
+                console.log("Address:", this.Address);
+            }
+        }
+
+        let staff1 = new Staff();
+
+        staff1.input(
+            201,
+            "Kumar",
+            "9876501234",
+            "kumar@gmail.com",
+            "Computer Science",
+            "Chennai"
+        );
+
+        staff1.display();
+
+    </script>
+
+</body>
+</html>

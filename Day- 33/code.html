@@ -1,0 +1,142 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Destructuring and Spread Operator</title>
+</head>
+<body>
+
+    <h2>JavaScript Destructuring and Spread Operator Tasks</h2>
+    <p>Open the browser console (F12) to see the output.</p>
+
+    <script>
+
+        // 1. Extract First and Last Element
+        console.log("Task 1: First and Last Element");
+
+        let arr1 = [10, 20, 30, 40, 50];
+
+        let [first, , , , last] = arr1;
+
+        console.log("First:", first);
+        console.log("Last:", last);
+
+
+        // 2. Skip Middle Value
+        console.log("Task 2: Skip Middle Value");
+
+        let arr2 = [100, 200, 300];
+
+        let [firstValue, , thirdValue] = arr2;
+
+        console.log("First:", firstValue);
+        console.log("Third:", thirdValue);
+
+
+        // 3. Separate First Element and Remaining
+        console.log("Task 3: First and Remaining Elements");
+
+        let arr3 = [1, 2, 3, 4, 5];
+
+        let [a, ...rest] = arr3;
+
+        console.log("a:", a);
+        console.log("rest:", rest);
+
+
+        // 4. Merge Two Arrays Using Spread
+        console.log("Task 4: Merge Two Arrays");
+
+        let a4 = [1, 2];
+        let b4 = [3, 4];
+
+        let merged = [...a4, ...b4];
+
+        console.log("Merged Array:", merged);
+
+
+        // 5. Clone an Array
+        console.log("Task 5: Clone an Array");
+
+        let arr5 = [10, 20, 30];
+
+        let copy = [...arr5];
+
+        console.log("Original Array:", arr5);
+        console.log("Copied Array:", copy);
+
+
+        // 6. Extract Properties from Object
+        console.log("Task 6: Extract Object Properties");
+
+        let product = {
+            id: 1,
+            name: "Mobile",
+            price: 15000
+        };
+
+        let { name, price } = product;
+
+        console.log("Name:", name);
+        console.log("Price:", price);
+
+
+        // 7. Rename Variables Using Destructuring
+        console.log("Task 7: Rename Variable");
+
+        let user = {
+            name: "Raj",
+            age: 25
+        };
+
+        let { name: fullName } = user;
+
+        console.log("Full Name:", fullName);
+
+
+        // 8. Nested Object Destructuring
+        console.log("Task 8: Nested Object Destructuring");
+
+        let student = {
+            marks: {
+                math: 95,
+                science: 90
+            }
+        };
+
+        let { marks: { math, science } } = student;
+
+        console.log("Math:", math);
+        console.log("Science:", science);
+
+
+        // 9. Function Parameter Destructuring
+        console.log("Task 9: Function Parameter Destructuring");
+
+        function show({ name, age }) {
+            console.log("Name:", name);
+            console.log("Age:", age);
+        }
+
+        let user2 = {
+            name: "Raj",
+            age: 25
+        };
+
+        show(user2);
+
+
+        // 10. Remove First Element and Add New Values
+        console.log("Task 10: Remove First and Add Values");
+
+        let arr10 = [10, 20, 30, 40];
+
+        let result = [...arr10.slice(1), 100, 200];
+
+        console.log("Result:", result);
+
+    </script>
+
+</body>
+</html>
+```

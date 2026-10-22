@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 22 - Array Functions</title>
+</head>
+
+<body>
+
+    <h1>Day 22 JavaScript Array Assignment</h1>
+
+    <script>
+
+        // =====================================================
+        // 1. Use push, pop, shift, unshift on an array
+        // =====================================================
+
+        const arrayOperations = () => {
+
+            let fruits = ["Apple", "Banana", "Mango"];
+
+            document.write("<h3>1. Push, Pop, Shift, Unshift</h3>");
+
+            document.write("Original Array: " + fruits + "<br>");
+
+            // push - adds element at the end
+            fruits.push("Orange");
+            document.write("After Push: " + fruits + "<br>");
+
+            // pop - removes element from the end
+            fruits.pop();
+            document.write("After Pop: " + fruits + "<br>");
+
+            // unshift - adds element at the beginning
+            fruits.unshift("Grapes");
+            document.write("After Unshift: " + fruits + "<br>");
+
+            // shift - removes element from the beginning
+            fruits.shift();
+            document.write("After Shift: " + fruits + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 2. Print all elements of an array using for loop
+        // =====================================================
+
+        const printArray = (arr) => {
+
+            document.write("<h3>2. Print Array Elements using For Loop</h3>");
+
+            for (let i = 0; i < arr.length; i++) {
+
+                document.write(arr[i] + "<br>");
+            }
+
+            document.write("<br>");
+        };
+
+
+        // =====================================================
+        // 3. Use map to double all numbers in an array
+        // =====================================================
+
+        const doubleNumbers = (arr) => {
+
+            let result = arr.map((num) => num * 2);
+
+            document.write("<h3>3. Double Numbers using Map</h3>");
+
+            document.write("Original Array: " + arr + "<br>");
+
+            document.write("Doubled Array: " + result + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 4. Use filter to get even numbers
+        // =====================================================
+
+        const evenNumbers = (arr) => {
+
+            let result = arr.filter((num) => num % 2 == 0);
+
+            document.write("<h3>4. Even Numbers using Filter</h3>");
+
+            document.write("Array: " + arr + "<br>");
+
+            document.write("Even Numbers: " + result + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 5. Use reduce to find the sum
+        // =====================================================
+
+        const sumArray = (arr) => {
+
+            let sum = arr.reduce(
+                (total, num) => total + num,
+                0
+            );
+
+            document.write("<h3>5. Sum using Reduce</h3>");
+
+            document.write("Array: " + arr + "<br>");
+
+            document.write("Sum = " + sum + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 6. Find the first number greater than 10
+        // =====================================================
+
+        const firstGreaterThan10 = (arr) => {
+
+            let result = arr.find((num) => num > 10);
+
+            document.write("<h3>6. First Number Greater Than 10</h3>");
+
+            document.write("Array: " + arr + "<br>");
+
+            document.write("First number greater than 10: " + result + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 7. Check if array includes a specific value
+        // =====================================================
+
+        const checkIncludes = (arr, value) => {
+
+            let result = arr.includes(value);
+
+            document.write("<h3>7. Check Includes</h3>");
+
+            document.write("Array: " + arr + "<br>");
+
+            document.write("Searching for: " + value + "<br>");
+
+            if (result == true) {
+                document.write(value + " is present in the array.<br>");
+            } else {
+                document.write(value + " is not present in the array.<br>");
+            }
+
+            document.write("<br>");
+        };
+
+
+        // =====================================================
+        // FUNCTION CALLS
+        // =====================================================
+
+        // 1. Push, Pop, Shift, Unshift
+        arrayOperations();
+
+
+        // Array for remaining programs
+        let numbers = [5, 8, 12, 15, 20, 7, 25];
+
+
+        // 2. Print all elements
+        printArray(numbers);
+
+
+        // 3. Double all numbers
+        doubleNumbers(numbers);
+
+
+        // 4. Get even numbers
+        evenNumbers(numbers);
+
+
+        // 5. Find sum
+        sumArray(numbers);
+
+
+        // 6. Find first number greater than 10
+        firstGreaterThan10(numbers);
+
+
+        // 7. Check specific value
+        checkIncludes(numbers, 20);
+
+    </script>
+
+</body>
+</html>

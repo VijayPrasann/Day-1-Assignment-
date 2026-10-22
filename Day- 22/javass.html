@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day 22 - Arrow Functions</title>
+</head>
+
+<body>
+
+    <h1>Day 22 JavaScript Functions & Arrow Functions</h1>
+
+    <script>
+
+        // =====================================================
+        // 12. FACTORIAL OF A GIVEN NUMBER
+        // =====================================================
+
+        // FOR LOOP
+        const factorialFor = (n) => {
+            let fact = 1;
+
+            for (let i = 1; i <= n; i++) {
+                fact = fact * i;
+            }
+
+            document.write("<h3>12. Factorial - For Loop</h3>");
+            document.write(n + "! = " + fact + "<br>");
+        };
+
+
+        // WHILE LOOP
+        const factorialWhile = (n) => {
+            let fact = 1;
+            let i = 1;
+
+            while (i <= n) {
+                fact = fact * i;
+                i++;
+            }
+
+            document.write("Factorial - While Loop: " + fact + "<br>");
+        };
+
+
+        // DO WHILE LOOP
+        const factorialDoWhile = (n) => {
+            let fact = 1;
+            let i = 1;
+
+            do {
+                fact = fact * i;
+                i++;
+            } while (i <= n);
+
+            document.write("Factorial - Do While Loop: " + fact + "<br><br>");
+        };
+
+
+        // =====================================================
+        // 13. PRIME NUMBER OR NOT
+        // =====================================================
+
+        // FOR LOOP
+        const primeFor = (n) => {
+            let count = 0;
+
+            for (let i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    count++;
+                }
+            }
+
+            document.write("<h3>13. Prime Number - For Loop</h3>");
+
+            if (count == 2) {
+                document.write(n + " is a Prime Number<br>");
+            } else {
+                document.write(n + " is Not a Prime Number<br>");
+            }
+        };
+
+
+        // WHILE LOOP
+        const primeWhile = (n) => {
+            let count = 0;
+            let i = 1;
+
+            while (i <= n) {
+                if (n % i == 0) {
+                    count++;
+                }
+
+                i++;
+            }
+
+            if (count == 2) {
+                document.write(n + " is a Prime Number using While Loop<br>");
+            } else {
+                document.write(n + " is Not a Prime Number using While Loop<br>");
+            }
+        };
+
+
+        // DO WHILE LOOP
+        const primeDoWhile = (n) => {
+            let count = 0;
+            let i = 1;
+
+            do {
+                if (n % i == 0) {
+                    count++;
+                }
+
+                i++;
+
+            } while (i <= n);
+
+            if (count == 2) {
+                document.write(n + " is a Prime Number using Do While Loop<br><br>");
+            } else {
+                document.write(n + " is Not a Prime Number using Do While Loop<br><br>");
+            }
+        };
+
+
+        // =====================================================
+        // 14. PRINT PRIME NUMBER SERIES
+        // =====================================================
+
+        // FOR LOOP
+        const primeSeriesFor = () => {
+
+            document.write("<h3>14. Prime Number Series - For Loop</h3>");
+
+            for (let n = 2; n <= 50; n++) {
+
+                let count = 0;
+
+                for (let i = 1; i <= n; i++) {
+                    if (n % i == 0) {
+                        count++;
+                    }
+                }
+
+                if (count == 2) {
+                    document.write(n + " ");
+                }
+            }
+
+            document.write("<br>");
+        };
+
+
+        // WHILE LOOP
+        const primeSeriesWhile = () => {
+
+            document.write("Prime Number Series - While Loop<br>");
+
+            let n = 2;
+
+            while (n <= 50) {
+
+                let count = 0;
+                let i = 1;
+
+                while (i <= n) {
+
+                    if (n % i == 0) {
+                        count++;
+                    }
+
+                    i++;
+                }
+
+                if (count == 2) {
+                    document.write(n + " ");
+                }
+
+                n++;
+            }
+
+            document.write("<br>");
+        };
+
+
+        // DO WHILE LOOP
+        const primeSeriesDoWhile = () => {
+
+            document.write("Prime Number Series - Do While Loop<br>");
+
+            let n = 2;
+
+            do {
+
+                let count = 0;
+                let i = 1;
+
+                do {
+
+                    if (n % i == 0) {
+                        count++;
+                    }
+
+                    i++;
+
+                } while (i <= n);
+
+                if (count == 2) {
+                    document.write(n + " ");
+                }
+
+                n++;
+
+            } while (n <= 50);
+
+            document.write("<br><br>");
+        };
+
+
+        // =====================================================
+        // 15. ARMSTRONG NUMBER OR NOT
+        // =====================================================
+
+        // FOR LOOP
+        const armstrongFor = (n) => {
+
+            let temp = n;
+            let digits = n.toString().length;
+            let sum = 0;
+
+            for (; temp > 0; temp = Math.floor(temp / 10)) {
+
+                let digit = temp % 10;
+
+                sum = sum + Math.pow(digit, digits);
+            }
+
+            document.write("<h3>15. Armstrong Number - For Loop</h3>");
+
+            if (sum == n) {
+                document.write(n + " is an Armstrong Number<br>");
+            } else {
+                document.write(n + " is Not an Armstrong Number<br>");
+            }
+        };
+
+
+        // WHILE LOOP
+        const armstrongWhile = (n) => {
+
+            let temp = n;
+            let digits = n.toString().length;
+            let sum = 0;
+
+            while (temp > 0) {
+
+                let digit = temp % 10;
+
+                sum = sum + Math.pow(digit, digits);
+
+                temp = Math.floor(temp / 10);
+            }
+
+            if (sum == n) {
+                document.write(n + " is an Armstrong Number using While Loop<br>");
+            } else {
+                document.write(n + " is Not an Armstrong Number using While Loop<br>");
+            }
+        };
+
+
+        // DO WHILE LOOP
+        const armstrongDoWhile = (n) => {
+
+            let temp = n;
+            let digits = n.toString().length;
+            let sum = 0;
+
+            do {
+
+                let digit = temp % 10;
+
+                sum = sum + Math.pow(digit, digits);
+
+                temp = Math.floor(temp / 10);
+
+            } while (temp > 0);
+
+            if (sum == n) {
+                document.write(n + " is an Armstrong Number using Do While Loop<br><br>");
+            } else {
+                document.write(n + " is Not an Armstrong Number using Do While Loop<br><br>");
+            }
+        };
+
+
+        // =====================================================
+        // 16. ARMSTRONG NUMBER SERIES
+        // =====================================================
+
+        // FOR LOOP
+        const armstrongSeriesFor = () => {
+
+            document.write("<h3>16. Armstrong Number Series - For Loop</h3>");
+
+            for (let n = 1; n <= 500; n++) {
+
+                let temp = n;
+                let digits = n.toString().length;
+                let sum = 0;
+
+                for (; temp > 0; temp = Math.floor(temp / 10)) {
+
+                    let digit = temp % 10;
+
+                    sum = sum + Math.pow(digit, digits);
+                }
+
+                if (sum == n) {
+                    document.write(n + " ");
+                }
+            }
+
+            document.write("<br>");
+        };
+
+
+        // WHILE LOOP
+        const armstrongSeriesWhile = () => {
+
+            document.write("Armstrong Number Series - While Loop<br>");
+
+            let n = 1;
+
+            while (n <= 500) {
+
+                let temp = n;
+                let digits = n.toString().length;
+                let sum = 0;
+
+                while (temp > 0) {
+
+                    let digit = temp % 10;
+
+                    sum = sum + Math.pow(digit, digits);
+
+                    temp = Math.floor(temp / 10);
+                }
+
+                if (sum == n) {
+                    document.write(n + " ");
+                }
+
+                n++;
+            }
+
+            document.write("<br>");
+        };
+
+
+        // DO WHILE LOOP
+        const armstrongSeriesDoWhile = () => {
+
+            document.write("Armstrong Number Series - Do While Loop<br>");
+
+            let n = 1;
+
+            do {
+
+                let temp = n;
+                let digits = n.toString().length;
+                let sum = 0;
+
+                do {
+
+                    let digit = temp % 10;
+
+                    sum = sum + Math.pow(digit, digits);
+
+                    temp = Math.floor(temp / 10);
+
+                } while (temp > 0);
+
+                if (sum == n) {
+                    document.write(n + " ");
+                }
+
+                n++;
+
+            } while (n <= 500);
+
+            document.write("<br><br>");
+        };
+
+
+        // =====================================================
+        // 17. FIBONACCI SERIES
+        // =====================================================
+
+        // FOR LOOP
+        const fibonacciFor = () => {
+
+            document.write("<h3>17. Fibonacci Series - For Loop</h3>");
+
+            let a = 0;
+            let b = 1;
+
+            for (let i = 1; i <= 10; i++) {
+
+                document.write(a + " ");
+
+                let c = a + b;
+
+                a = b;
+                b = c;
+            }
+
+            document.write("<br>");
+        };
+
+
+        // WHILE LOOP
+        const fibonacciWhile = () => {
+
+            document.write("Fibonacci Series - While Loop<br>");
+
+            let a = 0;
+            let b = 1;
+            let i = 1;
+
+            while (i <= 10) {
+
+                document.write(a + " ");
+
+                let c = a + b;
+
+                a = b;
+                b = c;
+
+                i++;
+            }
+
+            document.write("<br>");
+        };
+
+
+        // DO WHILE LOOP
+        const fibonacciDoWhile = () => {
+
+            document.write("Fibonacci Series - Do While Loop<br>");
+
+            let a = 0;
+            let b = 1;
+            let i = 1;
+
+            do {
+
+                document.write(a + " ");
+
+                let c = a + b;
+
+                a = b;
+                b = c;
+
+                i++;
+
+            } while (i <= 10);
+
+            document.write("<br><br>");
+        };
+
+
+        // =====================================================
+        // 18. PRINT 5 TABLE
+        // =====================================================
+
+        // FOR LOOP
+        const tableFor = () => {
+
+            document.write("<h3>18. 5 Table - For Loop</h3>");
+
+            for (let i = 1; i <= 10; i++) {
+
+                document.write(
+                    i + " * 5 = " + (i * 5) + "<br>"
+                );
+            }
+        };
+
+
+        // WHILE LOOP
+        const tableWhile = () => {
+
+            document.write("<br>5 Table - While Loop<br>");
+
+            let i = 1;
+
+            while (i <= 10) {
+
+                document.write(
+                    i + " * 5 = " + (i * 5) + "<br>"
+                );
+
+                i++;
+            }
+        };
+
+
+        // DO WHILE LOOP
+        const tableDoWhile = () => {
+
+            document.write("<br>5 Table - Do While Loop<br>");
+
+            let i = 1;
+
+            do {
+
+                document.write(
+                    i + " * 5 = " + (i * 5) + "<br>"
+                );
+
+                i++;
+
+            } while (i <= 10);
+
+            document.write("<br>");
+        };
+
+
+        // =====================================================
+        // 19. SUM OF DIGITS
+        // =====================================================
+
+        // FOR LOOP
+        const sumDigitFor = (n) => {
+
+            let sum = 0;
+
+            for (; n > 0; n = Math.floor(n / 10)) {
+
+                sum = sum + (n % 10);
+            }
+
+            document.write("<h3>19. Sum of Digits - For Loop</h3>");
+
+            document.write("Sum = " + sum + "<br>");
+        };
+
+
+        // WHILE LOOP
+        const sumDigitWhile = (n) => {
+
+            let sum = 0;
+
+            while (n > 0) {
+
+                sum = sum + (n % 10);
+
+                n = Math.floor(n / 10);
+            }
+
+            document.write(
+                "Sum of Digits - While Loop: " + sum + "<br>"
+            );
+        };
+
+
+        // DO WHILE LOOP
+        const sumDigitDoWhile = (n) => {
+
+            let sum = 0;
+
+            do {
+
+                sum = sum + (n % 10);
+
+                n = Math.floor(n / 10);
+
+            } while (n > 0);
+
+            document.write(
+                "Sum of Digits - Do While Loop: " + sum + "<br><br>"
+            );
+        };
+
+
+        // =====================================================
+        // 20. PALINDROME OR NOT
+        // =====================================================
+
+        // FOR LOOP
+        const palindromeFor = (str) => {
+
+            let reverse = "";
+
+            for (let i = str.length - 1; i >= 0; i--) {
+
+                reverse = reverse + str[i];
+            }
+
+            document.write("<h3>20. Palindrome - For Loop</h3>");
+
+            if (str == reverse) {
+                document.write(str + " is a Palindrome<br>");
+            } else {
+                document.write(str + " is Not a Palindrome<br>");
+            }
+        };
+
+
+        // WHILE LOOP
+        const palindromeWhile = (str) => {
+
+            let reverse = "";
+            let i = str.length - 1;
+
+            while (i >= 0) {
+
+                reverse = reverse + str[i];
+
+                i--;
+            }
+
+            if (str == reverse) {
+                document.write(
+                    str + " is a Palindrome using While Loop<br>"
+                );
+            } else {
+                document.write(
+                    str + " is Not a Palindrome using While Loop<br>"
+                );
+            }
+        };
+
+
+        // DO WHILE LOOP
+        const palindromeDoWhile = (str) => {
+
+            let reverse = "";
+            let i = str.length - 1;
+
+            do {
+
+                reverse = reverse + str[i];
+
+                i--;
+
+            } while (i >= 0);
+
+            if (str == reverse) {
+                document.write(
+                    str + " is a Palindrome using Do While Loop<br>"
+                );
+            } else {
+                document.write(
+                    str + " is Not a Palindrome using Do While Loop<br>"
+                );
+            }
+        };
+
+
+        // =====================================================
+        // FUNCTION CALLS
+        // =====================================================
+
+        // 12. Factorial
+        factorialFor(5);
+        factorialWhile(5);
+        factorialDoWhile(5);
+
+        // 13. Prime
+        primeFor(7);
+        primeWhile(7);
+        primeDoWhile(7);
+
+        // 14. Prime Series
+        primeSeriesFor();
+        primeSeriesWhile();
+        primeSeriesDoWhile();
+
+        // 15. Armstrong
+        armstrongFor(153);
+        armstrongWhile(153);
+        armstrongDoWhile(153);
+
+        // 16. Armstrong Series
+        armstrongSeriesFor();
+        armstrongSeriesWhile();
+        armstrongSeriesDoWhile();
+
+        // 17. Fibonacci
+        fibonacciFor();
+        fibonacciWhile();
+        fibonacciDoWhile();
+
+        // 18. 5 Table
+        tableFor();
+        tableWhile();
+        tableDoWhile();
+
+        // 19. Sum of Digits
+        sumDigitFor(12345);
+        sumDigitWhile(12345);
+        sumDigitDoWhile(12345);
+
+        // 20. Palindrome
+        palindromeFor("MALAYALAM");
+        palindromeWhile("MALAYALAM");
+        palindromeDoWhile("MALAYALAM");
+
+    </script>
+
+</body>
+</html>

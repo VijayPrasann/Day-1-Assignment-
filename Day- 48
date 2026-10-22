@@ -1,0 +1,127 @@
+-- PART 7: DATE AND TIME BUILT-IN FUNCTIONS
+-- NOW, CURDATE, CURTIME, YEAR, MONTH, DAY, DATE_FORMAT,
+-- DATEDIFF, DATE_ADD, DATE_SUB, DAYNAME, MONTHNAME
+-- =========================================================
+
+SELECT NOW() AS current_date_time;
+SELECT CURDATE() AS current_date;
+SELECT CURTIME() AS current_time;
+
+SELECT event_name,
+       YEAR(event_date) AS event_year,
+       MONTH(event_date) AS event_month,
+       DAY(event_date) AS event_day
+FROM events;
+
+SELECT event_name,
+       DATE_FORMAT(event_date, '%d-%m-%Y') AS formatted_date
+FROM events;
+
+SELECT event_name,
+       DATEDIFF(event_date, CURDATE()) AS days_from_today
+FROM events;
+
+SELECT event_name,
+       DATE_ADD(event_date, INTERVAL 10 DAY) AS date_after_10_days
+FROM events;
+
+SELECT event_name,
+       DATE_SUB(event_date, INTERVAL 5 DAY) AS date_before_5_days
+FROM events;
+
+SELECT event_name, DAYNAME(event_date) AS weekday_name FROM events;
+SELECT event_name, MONTHNAME(event_date) AS month_name FROM events;
+
+SELECT order_id,
+       YEAR(order_date) AS order_year,
+       MONTH(order_date) AS order_month
+FROM orders;
+
+-- =========================================================
+-- PART 8: NULL-HANDLING FUNCTIONS
+-- IFNULL, COALESCE, NULLIF
+-- =========================================================
+
+SELECT customer_name, IFNULL(email, 'No Email') AS email_status
+FROM customers;
+
+SELECT product_name, COALESCE(description, 'No Description') AS product_description
+FROM products;
+
+SELECT order_id, COALESCE(remarks, 'No Remarks') AS order_remarks
+FROM orders;
+
+SELECT employee_name, IFNULL(phone, 'Not Available') AS phone_number
+FROM employees;
+
+SELECT event_name, COALESCE(venue, 'Venue Not Decided') AS event_venue
+FROM events;
+
+SELECT NULLIF(100, 100) AS result_is_null;
+SELECT NULLIF(100, 50) AS result_is_100;
+
+-- =========================================================
+-- PART 9: CONDITIONAL FUNCTIONS IF AND CASE
+-- =========================================================
+
+SELECT product_name, price,
+       IF(price >= 20000, 'Expensive', 'Affordable') AS price_category
+FROM products;
+
+SELECT order_id, price,
+       CASE
+           WHEN price >= 50000 THEN 'High'
+           WHEN price >= 10000 THEN 'Medium'
+           ELSE 'Low'
+       END AS order_category
+FROM orders;
+
+SELECT employee_name, salary,
+       IF(salary >= 35000, 'High Salary', 'Regular Salary') AS salary_status
+FROM employees;
+
+SELECT customer_name, city,
+       CASE
+           WHEN city = 'Chennai' THEN 'Metro'
+           ELSE 'Other City'
+       END AS city_type
+FROM customers;
+
+SELECT event_name, event_date,
+       IF(event_date >= CURDATE(), 'Upcoming', 'Past') AS event_status
+FROM events;
+
+-- =========================================================
+-- PART 10: EXTRA USEFUL FUNCTIONS AND GROUPING
+-- =========================================================
+
+-- Count products and find average product price
+SELECT COUNT(*) AS product_count, AVG(price) AS average_product_price
+FROM products;
+
+-- Group order totals and sort descending
+SELECT product_name, SUM(price) AS total_sales
+FROM orders
+GROUP BY product_name
+ORDER BY total_sales DESC;
+
+-- Filter groups using HAVING
+SELECT product_name, SUM(price) AS total_sales
+FROM orders
+GROUP BY product_name
+HAVING SUM(price) > 10000
+ORDER BY total_sales DESC;
+
+-- Count employees in each department
+SELECT department, COUNT(*) AS employee_count
+FROM employees
+GROUP BY department;
+
+-- Show the five tables again
+SELECT * FROM customers;
+SELECT * FROM products;
+SELECT * FROM orders;
+SELECT * FROM employees;
+SELECT * FROM events;
+
+-- END OF ASSIGNMENT

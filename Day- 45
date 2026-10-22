@@ -1,0 +1,102 @@
+ALTER TABLE Product ADD Brand VARCHAR(50);
+
+-- 5. MODIFY COLUMNS (DDL)
+ALTER TABLE Employee MODIFY EmployeeName VARCHAR(100);
+ALTER TABLE Customer MODIFY CustomerName VARCHAR(100);
+ALTER TABLE Student MODIFY StudentName VARCHAR(100);
+ALTER TABLE Staff MODIFY StaffName VARCHAR(100);
+ALTER TABLE Product MODIFY ProductName VARCHAR(100);
+
+-- 6. RENAME COLUMNS (DDL)
+ALTER TABLE Employee RENAME COLUMN Salary TO MonthlySalary;
+ALTER TABLE Customer RENAME COLUMN City TO CustomerCity;
+ALTER TABLE Student RENAME COLUMN Marks TO TotalMarks;
+ALTER TABLE Staff RENAME COLUMN Role TO StaffRole;
+ALTER TABLE Product RENAME COLUMN Stock TO StockQuantity;
+
+-- 7. UPDATE THE NEW COLUMNS (DML)
+UPDATE Employee SET Email = 'arun@example.com' WHERE EmployeeID = 1;
+UPDATE Customer SET Age = 25 WHERE CustomerID = 1;
+UPDATE Student SET Email = 'nila@example.com' WHERE StudentID = 1;
+UPDATE Staff SET Phone = '9876500001' WHERE StaffID = 1;
+UPDATE Product SET Brand = 'TechBrand' WHERE ProductID = 1;
+
+-- 8. INSERT ONE MORE ROW INTO EACH TABLE (DML)
+INSERT INTO Employee (EmployeeID, EmployeeName, Age, Department, MonthlySalary, Email)
+VALUES (6, 'Karthik', 27, 'IT', 42000.00, 'karthik@example.com');
+
+INSERT INTO Customer (CustomerID, CustomerName, Email, CustomerCity, Phone, Age)
+VALUES (6, 'Fathima', 'fathima@example.com', 'Salem', '9876543215', 24);
+
+INSERT INTO Student (StudentID, StudentName, Age, Department, TotalMarks, Email)
+VALUES (6, 'Vimal', 20, 'CSE', 81, 'vimal@example.com');
+
+INSERT INTO Staff (StaffID, StaffName, StaffRole, Salary, Email, Phone)
+VALUES (6, 'Indhu', 'Assistant', 30000.00, 'indhu@example.com', '9876500006');
+
+INSERT INTO Product (ProductID, ProductName, Category, Price, StockQuantity, Brand)
+VALUES (6, 'Keyboard', 'Accessories', 1200.00, 20, 'KeyPro');
+
+-- 9. UPDATE EXISTING ROWS (DML)
+UPDATE Employee SET MonthlySalary = 37000.00 WHERE EmployeeID = 1;
+UPDATE Customer SET CustomerCity = 'Chengalpattu' WHERE CustomerID = 1;
+UPDATE Student SET TotalMarks = 90 WHERE StudentID = 1;
+UPDATE Staff SET Salary = 52000.00 WHERE StaffID = 1;
+UPDATE Product SET Price = 53000.00 WHERE ProductID = 1;
+
+-- 10. DELETE THE EXTRA ROW (DML)
+DELETE FROM Employee WHERE EmployeeID = 6;
+DELETE FROM Customer WHERE CustomerID = 6;
+DELETE FROM Student WHERE StudentID = 6;
+DELETE FROM Staff WHERE StaffID = 6;
+DELETE FROM Product WHERE ProductID = 6;
+
+-- 11. DROP THE EXTRA COLUMNS (DDL)
+ALTER TABLE Employee DROP COLUMN Email;
+ALTER TABLE Customer DROP COLUMN Age;
+ALTER TABLE Student DROP COLUMN Email;
+ALTER TABLE Staff DROP COLUMN Phone;
+ALTER TABLE Product DROP COLUMN Brand;
+
+-- 12. RENAME TABLES (DDL): RENAME AND THEN RESTORE ORIGINAL NAMES
+RENAME TABLE Employee TO Employee_New;
+RENAME TABLE Employee_New TO Employee;
+
+RENAME TABLE Customer TO Customer_New;
+RENAME TABLE Customer_New TO Customer;
+
+RENAME TABLE Student TO Student_New;
+RENAME TABLE Student_New TO Student;
+
+RENAME TABLE Staff TO Staff_New;
+RENAME TABLE Staff_New TO Staff;
+
+RENAME TABLE Product TO Product_New;
+RENAME TABLE Product_New TO Product;
+
+-- 13. FINAL RESULTS
+SELECT * FROM Employee;
+SELECT * FROM Customer;
+SELECT * FROM Student;
+SELECT * FROM Staff;
+SELECT * FROM Product;
+
+DESCRIBE Employee;
+DESCRIBE Customer;
+DESCRIBE Student;
+DESCRIBE Staff;
+DESCRIBE Product;
+
+-- 14. OPTIONAL: TRUNCATE TABLES (REMOVES ALL ROWS)
+-- TRUNCATE TABLE Employee;
+-- TRUNCATE TABLE Customer;
+-- TRUNCATE TABLE Student;
+-- TRUNCATE TABLE Staff;
+-- TRUNCATE TABLE Product;
+
+-- 15. OPTIONAL: DROP TABLES (REMOVES TABLES COMPLETELY)
+-- DROP TABLE Employee;
+-- DROP TABLE Customer;
+-- DROP TABLE Student;
+-- DROP TABLE Staff;
+-- DROP TABLE Product;

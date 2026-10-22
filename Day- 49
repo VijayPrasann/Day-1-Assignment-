@@ -1,0 +1,41 @@
+CREATE DATABASE assignment_db;
+USE assignment_db;
+
+-- Table 1: Customers
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY,
+    customer_name VARCHAR(50),
+    city VARCHAR(50)
+);
+
+-- Table 2: Products
+CREATE TABLE products (
+    product_id INT PRIMARY KEY,
+    product_name VARCHAR(50),
+    price DECIMAL(10,2)
+);
+
+-- Table 3: Orders
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    product_id INT,
+    product_name VARCHAR(50),
+    price DECIMAL(10,2),
+    order_date DATE
+);
+
+-- Table 4: Employees
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY,
+    employee_name VARCHAR(50),
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);
+
+-- Table 5: Events
+CREATE TABLE events (
+    id INT PRIMARY KEY,
+    event_name VARCHAR(100),
+    event_date DATE
+);

@@ -1,0 +1,273 @@
+# MySQL Assignment: Operators and Built-in Functions
+
+## 1. Arithmetic Operators
+
+```sql
+-- Employee
+SELECT Salary, Salary+1000, Salary-1000, Salary*2, Salary/2, Salary%1000 FROM Employee;
+
+-- Customer
+SELECT CustomerID, CustomerID+1, CustomerID-1, CustomerID*2, CustomerID/2, CustomerID%2 FROM Customer;
+
+-- Student
+SELECT Marks, Marks+5, Marks-5, Marks*2, Marks/2, Marks%2 FROM Student;
+
+-- Staff
+SELECT Salary, Salary+1000, Salary-1000, Salary*2, Salary/2, Salary%1000 FROM Staff;
+
+-- Product
+SELECT Price, Price+100, Price-100, Price*2, Price/2, Price%100 FROM Product;
+```
+
+## 2. Comparison Operators
+
+```sql
+-- Employee
+SELECT * FROM Employee WHERE Salary=30000;
+SELECT * FROM Employee WHERE Salary!=30000;
+SELECT * FROM Employee WHERE Salary<>30000;
+SELECT * FROM Employee WHERE Salary>30000;
+SELECT * FROM Employee WHERE Salary<30000;
+SELECT * FROM Employee WHERE Salary>=30000;
+SELECT * FROM Employee WHERE Salary<=30000;
+
+-- Customer
+SELECT * FROM Customer WHERE CustomerID=1;
+SELECT * FROM Customer WHERE CustomerID!=1;
+SELECT * FROM Customer WHERE CustomerID<>1;
+SELECT * FROM Customer WHERE CustomerID>1;
+SELECT * FROM Customer WHERE CustomerID<5;
+SELECT * FROM Customer WHERE CustomerID>=2;
+SELECT * FROM Customer WHERE CustomerID<=5;
+
+-- Student
+SELECT * FROM Student WHERE Marks=80;
+SELECT * FROM Student WHERE Marks!=80;
+SELECT * FROM Student WHERE Marks<>80;
+SELECT * FROM Student WHERE Marks>80;
+SELECT * FROM Student WHERE Marks<80;
+SELECT * FROM Student WHERE Marks>=80;
+SELECT * FROM Student WHERE Marks<=80;
+
+-- Staff
+SELECT * FROM Staff WHERE Salary=25000;
+SELECT * FROM Staff WHERE Salary!=25000;
+SELECT * FROM Staff WHERE Salary<>25000;
+SELECT * FROM Staff WHERE Salary>25000;
+SELECT * FROM Staff WHERE Salary<25000;
+SELECT * FROM Staff WHERE Salary>=25000;
+SELECT * FROM Staff WHERE Salary<=25000;
+
+-- Product
+SELECT * FROM Product WHERE Price=1000;
+SELECT * FROM Product WHERE Price!=1000;
+SELECT * FROM Product WHERE Price<>1000;
+SELECT * FROM Product WHERE Price>1000;
+SELECT * FROM Product WHERE Price<1000;
+SELECT * FROM Product WHERE Price>=1000;
+SELECT * FROM Product WHERE Price<=1000;
+```
+
+## 3. Logical Operators
+
+```sql
+-- Employee
+SELECT * FROM Employee WHERE Salary>20000 AND Salary<50000;
+SELECT * FROM Employee WHERE Salary<20000 OR Salary>50000;
+SELECT * FROM Employee WHERE NOT Salary=30000;
+
+-- Customer
+SELECT * FROM Customer WHERE CustomerID>1 AND CustomerID<5;
+SELECT * FROM Customer WHERE CustomerID=1 OR CustomerID=5;
+SELECT * FROM Customer WHERE NOT CustomerID=1;
+
+-- Student
+SELECT * FROM Student WHERE Marks>=50 AND Marks<=100;
+SELECT * FROM Student WHERE Marks<35 OR Marks>90;
+SELECT * FROM Student WHERE NOT Marks=80;
+
+-- Staff
+SELECT * FROM Staff WHERE Salary>20000 AND Salary<50000;
+SELECT * FROM Staff WHERE Salary<20000 OR Salary>50000;
+SELECT * FROM Staff WHERE NOT Salary=25000;
+
+-- Product
+SELECT * FROM Product WHERE Price>500 AND Price<5000;
+SELECT * FROM Product WHERE Price<500 OR Price>5000;
+SELECT * FROM Product WHERE NOT Price=1000;
+```
+
+## 4. Special Operators
+
+```sql
+-- Employee
+SELECT * FROM Employee WHERE Salary IN (20000,30000,40000);
+SELECT * FROM Employee WHERE Salary BETWEEN 20000 AND 50000;
+SELECT * FROM Employee WHERE EmpName LIKE 'A%';
+SELECT * FROM Employee WHERE Salary IS NULL;
+SELECT * FROM Employee WHERE Salary IS NOT NULL;
+SELECT * FROM Employee e WHERE EXISTS
+(SELECT 1 FROM Employee e2 WHERE e2.EmpID=e.EmpID);
+
+-- Customer
+SELECT * FROM Customer WHERE CustomerID IN (1,2,3);
+SELECT * FROM Customer WHERE CustomerID BETWEEN 1 AND 5;
+SELECT * FROM Customer WHERE CName LIKE 'A%';
+SELECT * FROM Customer WHERE Address IS NULL;
+SELECT * FROM Customer WHERE Address IS NOT NULL;
+SELECT * FROM Customer c WHERE EXISTS
+(SELECT 1 FROM Customer c2 WHERE c2.CustomerID=c.CustomerID);
+
+-- Student
+SELECT * FROM Student WHERE Marks IN (60,70,80);
+SELECT * FROM Student WHERE Marks BETWEEN 50 AND 100;
+SELECT * FROM Student WHERE StudentName LIKE 'A%';
+SELECT * FROM Student WHERE Marks IS NULL;
+SELECT * FROM Student WHERE Marks IS NOT NULL;
+SELECT * FROM Student s WHERE EXISTS
+(SELECT 1 FROM Student s2 WHERE s2.RollNo=s.RollNo);
+
+-- Staff
+SELECT * FROM Staff WHERE Salary IN (20000,25000,30000);
+SELECT * FROM Staff WHERE Salary BETWEEN 20000 AND 50000;
+SELECT * FROM Staff WHERE SName LIKE 'R%';
+SELECT * FROM Staff WHERE Email IS NULL;
+SELECT * FROM Staff WHERE Email IS NOT NULL;
+SELECT * FROM Staff s WHERE EXISTS
+(SELECT 1 FROM Staff s2 WHERE s2.StaffID=s.StaffID);
+
+-- Product
+SELECT * FROM Product WHERE Price IN (500,1000,1500);
+SELECT * FROM Product WHERE Price BETWEEN 500 AND 5000;
+SELECT * FROM Product WHERE ProductName LIKE 'M%';
+SELECT * FROM Product WHERE Price IS NULL;
+SELECT * FROM Product WHERE Price IS NOT NULL;
+SELECT * FROM Product p WHERE EXISTS
+(SELECT 1 FROM Product p2 WHERE p2.ProductID=p.ProductID);
+```
+
+## 5. String Built-in Functions
+
+```sql
+-- Employee
+SELECT UPPER(EmpName), LOWER(EmpName), LENGTH(EmpName) FROM Employee;
+
+-- Customer
+SELECT UPPER(CName), LOWER(CName), LENGTH(CName) FROM Customer;
+
+-- Student
+SELECT UPPER(StudentName), LOWER(StudentName), LENGTH(StudentName) FROM Student;
+
+-- Staff
+SELECT UPPER(SName), LOWER(SName), LENGTH(SName) FROM Staff;
+
+-- Product
+SELECT UPPER(ProductName), LOWER(ProductName), LENGTH(ProductName) FROM Product;
+
+-- Other string functions
+SELECT CONCAT('Hello',' ','World');
+SELECT SUBSTRING('DATABASE',1,4);
+SELECT TRIM('  MySQL  ');
+SELECT REPLACE('Hello World','World','SQL');
+SELECT REVERSE('MYSQL');
+```
+
+## 6. Numeric Built-in Functions
+
+```sql
+-- Employee
+SELECT ROUND(Salary), CEIL(Salary), FLOOR(Salary), ABS(Salary) FROM Employee;
+
+-- Customer
+SELECT ROUND(CustomerID), CEIL(CustomerID), FLOOR(CustomerID), ABS(CustomerID) FROM Customer;
+
+-- Student
+SELECT ROUND(Marks), CEIL(Marks), FLOOR(Marks), ABS(Marks) FROM Student;
+
+-- Staff
+SELECT ROUND(Salary), CEIL(Salary), FLOOR(Salary), ABS(Salary) FROM Staff;
+
+-- Product
+SELECT ROUND(Price), CEIL(Price), FLOOR(Price), ABS(Price) FROM Product;
+
+-- Additional numeric functions
+SELECT MOD(10,3);
+SELECT POWER(2,3);
+SELECT SQRT(64);
+SELECT ROUND(123.456,2);
+```
+
+## 7. Aggregate Functions
+
+```sql
+-- Employee
+SELECT COUNT(*), SUM(Salary), AVG(Salary), MIN(Salary), MAX(Salary) FROM Employee;
+
+-- Customer
+SELECT COUNT(*), MIN(CustomerID), MAX(CustomerID) FROM Customer;
+
+-- Student
+SELECT COUNT(*), SUM(Marks), AVG(Marks), MIN(Marks), MAX(Marks) FROM Student;
+
+-- Staff
+SELECT COUNT(*), SUM(Salary), AVG(Salary), MIN(Salary), MAX(Salary) FROM Staff;
+
+-- Product
+SELECT COUNT(*), SUM(Price), AVG(Price), MIN(Price), MAX(Price) FROM Product;
+```
+
+## 8. Date and Time Functions
+
+```sql
+SELECT CURDATE();
+SELECT CURTIME();
+SELECT NOW();
+SELECT YEAR(CURDATE());
+SELECT MONTH(CURDATE());
+SELECT DAY(CURDATE());
+SELECT DATE_ADD(CURDATE(), INTERVAL 7 DAY);
+SELECT DATEDIFF('2026-12-31', CURDATE());
+```
+
+## 9. Conditional and NULL Functions
+
+```sql
+SELECT IF(80>=50,'Pass','Fail');
+SELECT IFNULL(NULL,0);
+SELECT COALESCE(NULL,NULL,'Available');
+
+-- Student grade calculation
+SELECT StudentName, Marks,
+CASE
+    WHEN Marks>=90 THEN 'A'
+    WHEN Marks>=75 THEN 'B'
+    WHEN Marks>=50 THEN 'C'
+    ELSE 'Fail'
+END AS Grade
+FROM Student;
+```
+
+## 10. Sorting, Grouping and Limiting
+
+```sql
+-- Sort employees by salary
+SELECT * FROM Employee ORDER BY Salary DESC;
+
+-- Group staff by department
+SELECT Department, COUNT(*) AS TotalStaff
+FROM Staff
+GROUP BY Department;
+
+-- Departments having more than one staff member
+SELECT Department, COUNT(*) AS TotalStaff
+FROM Staff
+GROUP BY Department
+HAVING COUNT(*)>1;
+
+-- Display first five products
+SELECT * FROM Product LIMIT 5;
+```
+
+## Conclusion
+
+This assignment covers arithmetic, comparison, logical and special operators; string, numeric, aggregate, date, conditional and NULL functions; and sorting, grouping and limiting in MySQL.

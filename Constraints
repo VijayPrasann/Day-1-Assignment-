@@ -1,0 +1,223 @@
+
+-- ==========================================
+-- 1. CREATE DATABASE
+-- ==========================================
+
+CREATE DATABASE ConstraintDB;
+USE ConstraintDB;
+
+
+-- ==========================================
+-- 2. CREATE DEPARTMENTS TABLE
+-- ==========================================
+
+CREATE TABLE departments (
+    dept_id INT AUTO_INCREMENT,
+    dept_name VARCHAR(50) NOT NULL UNIQUE,
+    location VARCHAR(50) DEFAULT 'Chennai',
+
+    PRIMARY KEY (dept_id)
+);
+
+
+-- ==========================================
+-- 3. CREATE EMPLOYEES TABLE
+-- ==========================================
+
+CREATE TABLE employees (
+    emp_id INT AUTO_INCREMENT,
+    emp_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    age INT CHECK (age >= 18),
+    salary INT DEFAULT 20000,
+    dept_id INT,
+
+    PRIMARY KEY (emp_id),
+
+    FOREIGN KEY (dept_id)
+    REFERENCES departments(dept_id)
+);
+
+
+-- ==========================================
+-- 4. CREATE PROJECTS TABLE
+-- ==========================================
+
+CREATE TABLE projects (
+    project_id INT AUTO_INCREMENT,
+    project_name VARCHAR(50) NOT NULL UNIQUE,
+    budget INT CHECK (budget > 0),
+    dept_id INT,
+
+    PRIMARY KEY (project_id),
+
+    FOREIGN KEY (dept_id)
+    REFERENCES departments(dept_id)
+);
+
+
+-- ==========================================
+-- 5. INSERT DEPARTMENT RECORDS
+-- ==========================================
+
+INSERT INTO departments (dept_name, location)
+VALUES
+('IT', 'Chennai'),
+('HR', 'Bangalore'),
+('Finance', 'Mumbai');
+
+
+-- ==========================================
+-- 6. INSERT EMPLOYEE RECORDS
+-- ==========================================
+
+INSERT INTO employees (emp_name, email, age, salary, dept_id)
+VALUES
+('Alice', 'alice@gmail.com', 25, 50000, 1),
+('Bob', 'bob@gmail.com', 28, 40000, 1),
+('Charlie', 'charlie@gmail.com', 24, 35000, 2),
+('David', 'david@gmail.com', 30, 60000, 3);
+
+
+-- ==========================================
+-- 7. INSERT PROJECT RECORDS
+-- ==========================================
+
+INSERT INTO projects (project_name, budget, dept_id)
+VALUES
+('Website Development', 100000, 1),
+('Recruitment System', 50000, 2),
+('Banking Application', 150000, 3);
+
+
+-- ==========================================
+-- 8. DISPLAY TABLE RECORDS
+-- ==========================================
+
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM projects;
+
+
+-- ==========================================
+-- 9. NOT NULL CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- This will give an error because emp_name is NOT NULL
+
+-- INSERT INTO employees (email, age, dept_id)
+-- VALUES ('test@gmail.com', 25, 1);
+
+
+-- ==========================================
+-- 10. UNIQUE CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- This will give an error because email already exists
+
+-- INSERT INTO employees (emp_name, email, age, dept_id)
+-- VALUES ('John', 'alice@gmail.com', 25, 1);
+
+
+-- ==========================================
+-- 11. PRIMARY KEY CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- This will give an error because dept_id 1 already exists
+
+-- INSERT INTO departments (dept_id, dept_name)
+-- VALUES (1, 'Marketing');
+
+
+-- ==========================================
+-- 12. FOREIGN KEY CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- This will give an error because department ID 10 does not exist
+
+-- INSERT INTO employees (emp_name, email, age, dept_id)
+-- VALUES ('John', 'john@gmail.com', 25, 10);
+
+
+-- ==========================================
+-- 13. CHECK CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- This will give an error because age is less than 18
+
+-- INSERT INTO employees (emp_name, email, age, dept_id)
+-- VALUES ('Sam', 'sam@gmail.com', 16, 1);
+
+
+-- ==========================================
+-- 14. DEFAULT CONSTRAINT EXAMPLE
+-- ==========================================
+
+-- Salary will automatically become 20000
+
+INSERT INTO employees (emp_name, email, age, dept_id)
+VALUES ('Kumar', 'kumar@gmail.com', 22, 1);
+
+
+-- ==========================================
+-- 15. AUTO_INCREMENT EXAMPLE
+-- ==========================================
+
+-- Employee ID is generated automatically
+
+INSERT INTO employees (emp_name, email, age, salary, dept_id)
+VALUES ('Ravi', 'ravi@gmail.com', 26, 30000, 2);
+
+
+-- ==========================================
+-- 16. ADD CONSTRAINT USING ALTER TABLE
+-- ==========================================
+
+-- Add UNIQUE constraint
+
+ALTER TABLE employees
+ADD CONSTRAINT unique_employee_name UNIQUE (emp_name);
+
+
+-- Add CHECK constraint
+
+ALTER TABLE employees
+ADD CONSTRAINT check_salary CHECK (salary >= 10000);
+
+
+-- Add NOT NULL constraint to project name
+-- Already NOT NULL in table creation; no need to add again.
+
+
+-- ==========================================
+-- 17. DROP A CONSTRAINT
+-- ==========================================
+
+-- Drop CHECK constraint
+
+ALTER TABLE employees
+DROP CHECK check_salary;
+
+
+-- Drop UNIQUE constraint
+
+ALTER TABLE employees
+DROP INDEX unique_employee_name;
+
+
+-- ==========================================
+-- 18. VERIFY TABLE STRUCTURE
+-- ==========================================
+
+DESC departments;
+DESC employees;
+DESC projects;
+
+
+-- ==========================================
+-- 19. DISPLAY FINAL RECORDS
+-- ==========================================
+
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM projects;

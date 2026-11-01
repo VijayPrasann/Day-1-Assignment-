@@ -1,0 +1,239 @@
+-- CREATE DATABASE
+CREATE DATABASE CustomerDB;
+USE CustomerDB;
+
+
+-- CREATE CUSTOMER TABLE
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100),
+    Phone VARCHAR(15),
+    City VARCHAR(50),
+    Address VARCHAR(200),
+    RegisteredDate DATE
+);
+
+
+-- INSERT SAMPLE RECORDS
+INSERT INTO Customers
+(FirstName, LastName, Email, Phone, City, Address, RegisteredDate)
+VALUES
+('Vijay', 'Prasanna', 'vijay@gmail.com', '9876543210', 'Thanjavur', 'Main Road', '2026-10-01'),
+('Arun', 'Kumar', 'arun@gmail.com', '9876543211', 'Chennai', 'Anna Nagar', '2026-10-05'),
+('Ravi', 'Raj', NULL, '9876543212', 'Trichy', 'Gandhi Road', '2026-10-10'),
+('Ajay', 'Kumar', 'ajay@gmail.com', '9876543213', 'Chennai', 'T Nagar', '2026-10-15'),
+('Karthik', 'Raja', NULL, '9876543214', 'Madurai', 'Temple Road', '2026-10-20');
+
+
+-- 1. STORED PROCEDURE TO ADD A NEW CUSTOMER
+
+DELIMITER //
+
+CREATE PROCEDURE Add_Customer(
+    IN p_FirstName VARCHAR(50),
+    IN p_LastName VARCHAR(50),
+    IN p_Email VARCHAR(100),
+    IN p_Phone VARCHAR(15),
+    IN p_City VARCHAR(50),
+    IN p_Address VARCHAR(200),
+    IN p_RegisteredDate DATE
+)
+BEGIN
+    INSERT INTO Customers
+    (FirstName, LastName, Email, Phone, City, Address, RegisteredDate)
+    VALUES
+    (p_FirstName, p_LastName, p_Email, p_Phone,
+     p_City, p_Address, p_RegisteredDate);
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Add_Customer(
+    'Prasanna', 'Vijay', 'prasanna@gmail.com',
+    '9876501234', 'Thanjavur', 'New Street', '2026-10-25'
+);
+
+
+-- 2. STORED PROCEDURE TO RETRIEVE CUSTOMER BY CUSTOMERID
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Customer_By_ID(
+    IN p_CustomerID INT
+)
+BEGIN
+    SELECT *
+    FROM Customers
+    WHERE CustomerID = p_CustomerID;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Get_Customer_By_ID(1);
+
+
+-- 3. STORED PROCEDURE TO UPDATE EMAIL AND PHONE NUMBER
+
+DELIMITER //
+
+CREATE PROCEDURE Update_Customer_Contact(
+    IN p_CustomerID INT,
+    IN p_Email VARCHAR(100),
+    IN p_Phone VARCHAR(15)
+)
+BEGIN
+    UPDATE Customers
+    SET Email = p_Email,
+        Phone = p_Phone
+    WHERE CustomerID = p_CustomerID;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Update_Customer_Contact(
+    1, 'newvijay@gmail.com', '9999999999'
+);
+
+
+-- 4. STORED PROCEDURE TO GET CUSTOMERS FROM A SPECIFIC CITY
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Customers_By_City(
+    IN p_City VARCHAR(50)
+)
+BEGIN
+    SELECT *
+    FROM Customers
+    WHERE City = p_City;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Get_Customers_By_City('Chennai');
+
+
+-- 5. STORED PROCEDURE TO DELETE CUSTOMER BY CUSTOMERID
+
+DELIMITER //
+
+CREATE PROCEDURE Delete_Customer(
+    IN p_CustomerID INT
+)
+BEGIN
+    DELETE FROM Customers
+    WHERE CustomerID = p_CustomerID;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Delete_Customer(5);
+
+
+-- 6. STORED PROCEDURE TO LIST CUSTOMERS WITHIN A DATE RANGE
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Customers_By_Date(
+    IN p_StartDate DATE,
+    IN p_EndDate DATE
+)
+BEGIN
+    SELECT *
+    FROM Customers
+    WHERE RegisteredDate BETWEEN p_StartDate AND p_EndDate;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Get_Customers_By_Date('2026-10-01', '2026-10-20');
+
+
+-- 7. STORED PROCEDURE TO SEARCH CUSTOMERS BY PARTIAL FIRSTNAME OR LASTNAME
+
+DELIMITER //
+
+CREATE PROCEDURE Search_Customer(
+    IN p_Search VARCHAR(50)
+)
+BEGIN
+    SELECT *
+    FROM Customers
+    WHERE FirstName LIKE CONCAT('%', p_Search, '%')
+       OR LastName LIKE CONCAT('%', p_Search, '%');
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Search_Customer('Ku');
+
+
+-- 8. STORED PROCEDURE TO UPDATE ENTIRE CUSTOMER ADDRESS
+
+DELIMITER //
+
+CREATE PROCEDURE Update_Customer_Address(
+    IN p_CustomerID INT,
+    IN p_Address VARCHAR(200),
+    IN p_City VARCHAR(50)
+)
+BEGIN
+    UPDATE Customers
+    SET Address = p_Address,
+        City = p_City
+    WHERE CustomerID = p_CustomerID;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Update_Customer_Address(
+    1, 'New Bus Stand Road', 'Thanjavur'
+);
+
+
+-- 9. STORED PROCEDURE TO RETURN TOTAL NUMBER OF CUSTOMERS
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Total_Customers()
+BEGIN
+    SELECT COUNT(*) AS Total_Customers
+    FROM Customers;
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Get_Total_Customers();
+
+
+-- 10. STORED PROCEDURE TO RETRIEVE CUSTOMERS WITHOUT EMAIL ADDRESS
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Customers_Without_Email()
+BEGIN
+    SELECT *
+    FROM Customers
+    WHERE Email IS NULL OR Email = '';
+END //
+
+DELIMITER ;
+
+-- EXECUTE
+CALL Get_Customers_Without_Email();
+
+
+-- DISPLAY FINAL CUSTOMER TABLE
+
+SELECT * FROM Customers;

@@ -1,0 +1,188 @@
+-- CREATE DATABASE
+CREATE DATABASE InventoryDB;
+USE InventoryDB;
+
+
+-- CREATE PRODUCTS TABLE
+CREATE TABLE Products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100),
+    price DECIMAL(10,2),
+    stock_quantity INT,
+    status VARCHAR(20) DEFAULT 'Available'
+);
+
+
+-- CREATE INVENTORY AUDIT TABLE
+CREATE TABLE Inventory_Audit (
+    audit_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_id INT,
+    action_type VARCHAR(50),
+    old_value VARCHAR(100),
+    new_value VARCHAR(100),
+    changed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+-- INSERT SAMPLE PRODUCTS
+INSERT INTO Products (name, price, stock_quantity)
+VALUES
+('Laptop', 50000, 10),
+('Mobile', 20000, 15),
+('Keyboard', 1000, 5),
+('Mouse', 500, 20),
+('Monitor', 12000, 8);
+
+
+-- DISPLAY PRODUCTS
+SELECT * FROM Products;
+
+
+-- 1. PREVENT NEGATIVE STOCK
+-- BEFORE UPDATE TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER Prevent_Negative_Stock
+BEFORE UPDATE ON Products
+FOR EACH ROW
+BEGIN
+    IF NEW.stock_quantity < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Stock quantity cannot be negative';
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- TEST NEGATIVE STOCK
+
+UPDATE Products
+SET stock_quantity = -5
+WHERE product_id = 1;
+
+
+-- 2. AUDIT PRICE CHANGES
+-- AFTER UPDATE TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER Audit_Price_Changes
+AFTER UPDATE ON Products
+FOR EACH ROW
+BEGIN
+    IF OLD.price <> NEW.price THEN
+        INSERT INTO Inventory_Audit
+        (product_id, action_type, old_value, new_value)
+        VALUES
+        (NEW.product_id, 'Price Updated',
+         OLD.price, NEW.price);
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- TEST PRICE CHANGE
+
+UPDATE Products
+SET price = 55000
+WHERE product_id = 1;
+
+
+-- CHECK PRICE AUDIT
+
+SELECT * FROM Inventory_Audit;
+
+
+-- 3. AUTO-UPDATE STATUS TO OUT OF STOCK
+-- BEFORE UPDATE TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER Update_Product_Status
+BEFORE UPDATE ON Products
+FOR EACH ROW
+BEGIN
+    IF NEW.stock_quantity = 0 THEN
+        SET NEW.status = 'Out of Stock';
+    ELSE
+        SET NEW.status = 'Available';
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- TEST STOCK ZERO
+
+UPDATE Products
+SET stock_quantity = 0
+WHERE product_id = 2;
+
+
+-- CHECK PRODUCT STATUS
+
+SELECT * FROM Products;
+
+
+-- 4. ENFORCE UPPERCASE PRODUCT NAMES
+-- BEFORE INSERT TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER Uppercase_Product_Name
+BEFORE INSERT ON Products
+FOR EACH ROW
+BEGIN
+    SET NEW.name = UPPER(NEW.name);
+END //
+
+DELIMITER ;
+
+
+-- TEST UPPERCASE NAME
+
+INSERT INTO Products (name, price, stock_quantity)
+VALUES ('headphones', 1500, 10);
+
+
+-- CHECK PRODUCT NAME
+
+SELECT * FROM Products;
+
+
+-- 5. LOG NEW PRODUCT ADDITIONS
+-- AFTER INSERT TRIGGER
+
+DELIMITER //
+
+CREATE TRIGGER Log_New_Product
+AFTER INSERT ON Products
+FOR EACH ROW
+BEGIN
+    INSERT INTO Inventory_Audit
+    (product_id, action_type, old_value, new_value)
+    VALUES
+    (NEW.product_id, 'New Product Added',
+     NULL, NEW.name);
+END //
+
+DELIMITER ;
+
+
+-- TEST NEW PRODUCT ADDITION
+
+INSERT INTO Products (name, price, stock_quantity)
+VALUES ('Printer', 8000, 5);
+
+
+-- CHECK INVENTORY AUDIT
+
+SELECT * FROM Inventory_Audit;
+
+
+-- DISPLAY FINAL PRODUCTS TABLE
+
+SELECT * FROM Products;

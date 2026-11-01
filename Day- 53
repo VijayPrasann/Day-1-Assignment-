@@ -1,0 +1,165 @@
+-- CREATE DATABASE
+CREATE DATABASE CustomerDB;
+USE CustomerDB;
+
+
+-- 1. CREATE CUSTOMER TABLE
+CREATE TABLE Customer (
+    Customer_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(100),
+    Mobile_No VARCHAR(15),
+    Address VARCHAR(200),
+    Bill_Amount DECIMAL(10,2),
+    Bill_Date DATE
+);
+
+
+-- INSERT SAMPLE RECORDS
+INSERT INTO Customer
+(Name, Mobile_No, Address, Bill_Amount, Bill_Date)
+VALUES
+('Vijay', '9876543210', 'Thanjavur', 1500, '2026-10-01'),
+('Arun', '9876543211', 'Chennai', 2500, '2026-10-05'),
+('Kumar', '9876543212', 'Trichy', 3000, '2026-10-10'),
+('Ravi', '9876543213', 'Madurai', 1800, '2026-10-15'),
+('Ajay', '9876543214', 'Salem', 4000, '2026-10-20');
+
+
+-- DISPLAY CUSTOMER TABLE
+SELECT * FROM Customer;
+
+
+-- 2. CREATE VIEW
+-- A View is a virtual table created from an SQL query.
+
+CREATE VIEW Customer_View AS
+SELECT Customer_ID, Name, Mobile_No, Bill_Amount
+FROM Customer;
+
+SELECT * FROM Customer_View;
+
+
+-- VIEW WITH CONDITION
+CREATE VIEW High_Bill_Customers AS
+SELECT Name, Bill_Amount
+FROM Customer
+WHERE Bill_Amount > 2000;
+
+SELECT * FROM High_Bill_Customers;
+
+
+-- 3. STORED PROCEDURE TO INSERT CUSTOMER DETAILS
+
+DELIMITER //
+
+CREATE PROCEDURE Insert_Customer(
+    IN p_Name VARCHAR(100),
+    IN p_Mobile_No VARCHAR(15),
+    IN p_Address VARCHAR(200),
+    IN p_Bill_Amount DECIMAL(10,2),
+    IN p_Bill_Date DATE
+)
+BEGIN
+    INSERT INTO Customer
+    (Name, Mobile_No, Address, Bill_Amount, Bill_Date)
+    VALUES
+    (p_Name, p_Mobile_No, p_Address, p_Bill_Amount, p_Bill_Date);
+END //
+
+DELIMITER ;
+
+
+-- EXECUTE INSERT PROCEDURE
+
+CALL Insert_Customer(
+    'Prasanna',
+    '9876501234',
+    'Thanjavur',
+    5000,
+    '2026-10-25'
+);
+
+
+-- 4. STORED PROCEDURE TO LIST CUSTOMERS WITHIN DATE RANGE
+
+DELIMITER //
+
+CREATE PROCEDURE Get_Customers_By_Date(
+    IN p_Start_Date DATE,
+    IN p_End_Date DATE
+)
+BEGIN
+    SELECT *
+    FROM Customer
+    WHERE Bill_Date BETWEEN p_Start_Date AND p_End_Date;
+END //
+
+DELIMITER ;
+
+
+-- EXECUTE DATE RANGE PROCEDURE
+
+CALL Get_Customers_By_Date(
+    '2026-10-01',
+    '2026-10-15'
+);
+
+
+-- 5. BEFORE UPDATE TRIGGER TO PREVENT NEGATIVE BILL AMOUNT
+
+DELIMITER //
+
+CREATE TRIGGER Check_Negative_Bill
+BEFORE UPDATE ON Customer
+FOR EACH ROW
+BEGIN
+    IF NEW.Bill_Amount < 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Bill Amount cannot be negative';
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- TEST NEGATIVE BILL AMOUNT
+
+UPDATE Customer
+SET Bill_Amount = -500
+WHERE Customer_ID = 1;
+
+
+-- 6. BEFORE UPDATE TRIGGER TO PREVENT BILL AMOUNT DECREASE
+
+DELIMITER //
+
+CREATE TRIGGER Prevent_Bill_Decrease
+BEFORE UPDATE ON Customer
+FOR EACH ROW
+BEGIN
+    IF NEW.Bill_Amount < OLD.Bill_Amount THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'New Bill Amount cannot be decreased';
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- TEST BILL AMOUNT DECREASE
+
+UPDATE Customer
+SET Bill_Amount = 1000
+WHERE Customer_ID = 1;
+
+
+-- TEST BILL AMOUNT INCREASE
+
+UPDATE Customer
+SET Bill_Amount = 2000
+WHERE Customer_ID = 1;
+
+
+-- DISPLAY FINAL CUSTOMER TABLE
+
+SELECT * FROM Customer;

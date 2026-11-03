@@ -1,0 +1,122 @@
+function Student() {
+    return (
+        <div>
+            <h2>Student Details</h2>
+            <p>Name: Vijay Prasanna</p>
+            <p>Department: Computer Science</p>
+            <p>Year: Final Year</p>
+        </div>
+    )
+}
+
+export default Student;
+
+LoginStatus.jsx
+
+function LoginStatus() {
+
+    let isLoggedIn = true;
+
+    if (isLoggedIn) {
+        return <h2>Welcome User!</h2>
+    }
+    else {
+        return <h2>Please Login</h2>
+    }
+
+}
+
+
+Result.jsx
+
+Result.jsxfunction Result() {
+
+    let mark = 75;
+
+    if (mark >= 35) {
+        return <h2>Pass</h2>
+    }
+    else {
+        return <h2>Fail</h2>
+    }
+
+}
+
+export default Result;
+
+
+Product.jsx
+
+function Product() {
+
+    let isAvailable = false;
+
+    return (
+        <div>
+            <h2>
+                {isAvailable ? "Product In Stock" : "Out of Stock"}
+            </h2>
+        </div>
+    )
+
+}
+
+export default Product;
+
+AgeCheck.jsx
+
+function AgeCheck() {
+
+    let age = 20;
+
+    if (age >= 18) {
+        return <h2>Eligible to Vote</h2>
+    }
+    else {
+        return <h2>Not Eligible to Vote</h2>
+    }
+
+}
+
+export default AgeCheck;
+
+App.jsx – Call all 5 components
+
+import Student from './components/Student'
+import LoginStatus from './components/LoginStatus'
+import Result from './components/Result'
+import Product from './components/Product'
+import AgeCheck from './components/AgeCheck'
+
+function App() {
+
+    return (
+        <div>
+            <h1>React Assignment</h1>
+
+            <Student />
+
+            <hr />
+
+            <LoginStatus />
+
+            <hr />
+
+            <Result />
+
+            <hr />
+
+            <Product />
+
+            <hr />
+
+            <AgeCheck />
+
+        </div>
+    )
+
+}
+
+export default App;
+
+export default LoginStatus;

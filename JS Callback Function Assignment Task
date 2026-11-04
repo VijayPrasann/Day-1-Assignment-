@@ -1,0 +1,103 @@
+
+// 1. Calculate() – Addition using Callback Function
+
+function calculate(a, b, callback) {
+    callback(a, b);
+}
+
+function addition(x, y) {
+    console.log("Addition =", x + y);
+}
+
+calculate(10, 20, addition);
+
+
+// 2. GreetUser() – Welcome Message using Callback
+
+function greetUser(name, callback) {
+    callback(name);
+}
+
+function welcome(name) {
+    console.log("Welcome " + name + "!");
+}
+
+greetUser("Vijay", welcome);
+
+
+// 3. ProcessArray() – Double Each Element using Callback
+
+function processArray(arr, callback) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        result.push(callback(arr[i]));
+    }
+
+    console.log("Doubled Array:", result);
+}
+
+function double(num) {
+    return num * 2;
+}
+
+processArray([1, 2, 3, 4, 5], double);
+
+
+// 4. FindNumber() – Find First Even Number using Callback
+
+function findNumber(arr, callback) {
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            console.log("First Even Number:", arr[i]);
+            return;
+        }
+    }
+
+    console.log("Even Number Not Found");
+}
+
+function checkEven(num) {
+    return num % 2 == 0;
+}
+
+findNumber([1, 3, 5, 8, 10, 12], checkEven);
+
+
+// 5. RemoveNegative() – Remove Negative Values using Callback
+
+function removeNegative(arr, callback) {
+    let result = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i])) {
+            result.push(arr[i]);
+        }
+    }
+
+    console.log("Array Without Negative Values:", result);
+}
+
+function checkPositive(num) {
+    return num >= 0;
+}
+
+removeNegative([10, -5, 20, -8, 30, -2], checkPositive);
+
+
+// 6. CheckEligibility() – Voting Eligibility using Callback
+
+function checkEligibility(age, callback) {
+    callback(age);
+}
+
+function voting(age) {
+    if (age >= 18) {
+        console.log("Eligible to Vote");
+    } else {
+        console.log("Not Eligible to Vote");
+    }
+}
+
+checkEligibility(20, voting);
+

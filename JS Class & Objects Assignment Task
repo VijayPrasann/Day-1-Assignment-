@@ -1,0 +1,103 @@
+
+// 1. Student Class
+
+class Student {
+    constructor(rollNo, name, marks) {
+        this.rollNo = rollNo;
+        this.name = name;
+        this.marks = marks;
+    }
+
+    display() {
+        console.log("Student Details");
+        console.log("Roll No:", this.rollNo);
+        console.log("Name:", this.name);
+        console.log("Marks:", this.marks);
+    }
+}
+
+let s1 = new Student(101, "Vijay", 85);
+s1.display();
+
+
+// 2. Employee Class
+
+class Employee {
+    input(empId, empName, designation, salary) {
+        this.empId = empId;
+        this.empName = empName;
+        this.designation = designation;
+        this.salary = salary;
+    }
+
+    display() {
+        console.log("Employee Details");
+        console.log("Employee ID:", this.empId);
+        console.log("Employee Name:", this.empName);
+        console.log("Designation:", this.designation);
+        console.log("Salary:", this.salary);
+    }
+}
+
+let e1 = new Employee();
+e1.input(101, "Vijay", "Software Developer", 25000);
+e1.display();
+
+
+// 3. Customer Class
+
+class Customer {
+    input(CustomerId, CName, Mobile, Address) {
+        this.CustomerId = CustomerId;
+        this.CName = CName;
+        this.Mobile = Mobile;
+        this.Address = Address;
+    }
+
+    display() {
+        console.log("Customer Details");
+        console.log("Customer ID:", this.CustomerId);
+        console.log("Customer Name:", this.CName);
+        console.log("Mobile:", this.Mobile);
+        console.log("Address:", this.Address);
+    }
+}
+
+let c1 = new Customer();
+c1.input(201, "Rahul", "9876543210", "Chennai");
+c1.display();
+
+
+// 4. Staff Class
+
+class Staff {
+    input(StaffId, SName, Mobile, Email, department, Address) {
+        this.StaffId = StaffId;
+        this.SName = SName;
+        this.Mobile = Mobile;
+        this.Email = Email;
+        this.department = department;
+        this.Address = Address;
+    }
+
+    display() {
+        console.log("Staff Details");
+        console.log("Staff ID:", this.StaffId);
+        console.log("Staff Name:", this.SName);
+        console.log("Mobile:", this.Mobile);
+        console.log("Email:", this.Email);
+        console.log("Department:", this.department);
+        console.log("Address:", this.Address);
+    }
+}
+
+let st1 = new Staff();
+st1.input(
+    301,
+    "Arun",
+    "9876543210",
+    "arun@gmail.com",
+    "IT",
+    "Thanjavur"
+);
+st1.display();

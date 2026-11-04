@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript DOM Assignment</title>
+</head>
+<body>
+
+    <h1>JavaScript DOM Methods</h1>
+
+    <!-- Task 1: getElementById -->
+
+    <h2>Task 1: Finding Elements by ID</h2>
+
+    <p id="para">Welcome to JavaScript</p>
+
+    <button id="btn" onclick="disableButton()">
+        Click to Disable
+    </button>
+
+    <div id="myDiv">
+        This is a Div
+    </div>
+
+    <button onclick="changeText()">Change Paragraph</button>
+    <button onclick="changeBackground()">Change Div Background</button>
+
+
+    <!-- Task 2: getElementsByTagName -->
+
+    <h2>Task 2: Finding Elements by Tag Name</h2>
+
+    <p>First Paragraph</p>
+    <p>Second Paragraph</p>
+    <p>Third Paragraph</p>
+
+    <ul>
+        <li>Apple</li>
+        <li>Mango</li>
+        <li>Orange</li>
+    </ul>
+
+    <button onclick="changeParagraphColor()">
+        Change P Color
+    </button>
+
+    <button onclick="countList()">
+        Count LI Elements
+    </button>
+
+    <button onclick="changeHeadingSize()">
+        Change H1 Size
+    </button>
+
+    <p id="count"></p>
+
+
+    <!-- Task 3: getElementsByClassName -->
+
+    <h2>Task 3: Finding Elements by Class Name</h2>
+
+    <p class="box">First Box</p>
+    <p class="box">Second Box</p>
+    <p class="box">Third Box</p>
+
+    <p class="hidden-item">Hide This Item 1</p>
+    <p class="hidden-item">Hide This Item 2</p>
+
+    <p class="message"></p>
+    <p class="message"></p>
+
+    <button onclick="changeClassBackground()">
+        Change Class Background
+    </button>
+
+    <button onclick="hideItems()">
+        Hide Items
+    </button>
+
+    <button onclick="addMessage()">
+        Add Message
+    </button>
+
+
+    <!-- Task 4: querySelector -->
+
+    <h2>Task 4: Finding Elements Using CSS Selectors</h2>
+
+    <p>First Paragraph for Query Selector</p>
+    <p class="demo">Class Selector Paragraph</p>
+
+    <form>
+        <input type="text" id="username"
+               placeholder="Enter Your Name">
+
+        <input type="text" placeholder="Enter City">
+    </form>
+
+    <p id="output"></p>
+
+    <button onclick="changeFirstParagraph()">
+        Change First Paragraph
+    </button>
+
+    <button onclick="changeClassColor()">
+        Change Demo Color
+    </button>
+
+    <button onclick="getInputValue()">
+        Get Input Value
+    </button>
+
+    <button onclick="getAttributeInput()">
+        Select Text Input
+    </button>
+
+
+    <script>
+
+        // TASK 1: getElementById
+
+        // 1. Change paragraph text
+
+        function changeText() {
+            document.getElementById("para").innerHTML =
+                "Text Changed Successfully";
+        }
+
+        // 2. Disable button when clicked
+
+        function disableButton() {
+            document.getElementById("btn").disabled = true;
+        }
+
+        // 3. Change div background color
+
+        function changeBackground() {
+            document.getElementById("myDiv").style.backgroundColor =
+                "lightgreen";
+        }
+
+
+        // TASK 2: getElementsByTagName
+
+        // 1. Change all paragraph colors
+
+        function changeParagraphColor() {
+            let p = document.getElementsByTagName("p");
+
+            for (let i = 0; i < p.length; i++) {
+                p[i].style.color = "blue";
+            }
+        }
+
+        // 2. Count LI elements
+
+        function countList() {
+            let li = document.getElementsByTagName("li");
+
+            document.getElementById("count").innerHTML =
+                "Total LI Elements: " + li.length;
+        }
+
+        // 3. Change all H1 font sizes
+
+        function changeHeadingSize() {
+            let h = document.getElementsByTagName("h1");
+
+            for (let i = 0; i < h.length; i++) {
+                h[i].style.fontSize = "40px";
+            }
+        }
+
+
+        // TASK 3: getElementsByClassName
+
+        // 1. Change background of all box elements
+
+        function changeClassBackground() {
+            let box = document.getElementsByClassName("box");
+
+            for (let i = 0; i < box.length; i++) {
+                box[i].style.backgroundColor = "yellow";
+            }
+        }
+
+        // 2. Hide all hidden-item elements
+
+        function hideItems() {
+            let items =
+                document.getElementsByClassName("hidden-item");
+
+            for (let i = 0; i < items.length; i++) {
+                items[i].style.display = "none";
+            }
+        }
+
+        // 3. Add text to all message elements
+
+        function addMessage() {
+            let msg = document.getElementsByClassName("message");
+
+            for (let i = 0; i < msg.length; i++) {
+                msg[i].innerHTML = "Welcome to JavaScript DOM";
+            }
+        }
+
+
+        // TASK 4: querySelector
+
+        // 1. Select first P element and change text
+
+        function changeFirstParagraph() {
+            document.querySelector("p").innerHTML =
+                "First Paragraph Changed";
+        }
+
+        // 2. Select class and change color
+
+        function changeClassColor() {
+            document.querySelector(".demo").style.color = "red";
+        }
+
+        // 3. Select input inside form and get value
+
+        function getInputValue() {
+            let value =
+                document.querySelector("form input").value;
+
+            document.getElementById("output").innerHTML =
+                "Input Value: " + value;
+        }
+
+        // 4. Select using attribute selector
+
+        function getAttributeInput() {
+            let input =
+                document.querySelector('input[type="text"]');
+
+            document.getElementById("output").innerHTML =
+                "Selected Input: " + input.value;
+        }
+
+    </script>
+
+</body>
+</html>

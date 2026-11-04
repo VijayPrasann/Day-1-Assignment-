@@ -1,0 +1,87 @@
+
+// 1. Use push, pop, shift, unshift on an array
+
+let arr1 = [10, 20, 30, 40];
+
+console.log("Original Array:", arr1);
+
+arr1.push(50);
+console.log("After Push:", arr1);
+
+arr1.pop();
+console.log("After Pop:", arr1);
+
+arr1.shift();
+console.log("After Shift:", arr1);
+
+arr1.unshift(5);
+console.log("After Unshift:", arr1);
+
+
+// 2. Print all elements of an array using for loop
+
+let arr2 = [10, 20, 30, 40, 50];
+
+console.log("Array Elements:");
+
+for (let i = 0; i < arr2.length; i++) {
+    console.log(arr2[i]);
+}
+
+
+// 3. Use map to double all numbers in an array
+
+let arr3 = [1, 2, 3, 4, 5];
+
+let double = arr3.map((num) => {
+    return num * 2;
+});
+
+console.log("Original Array:", arr3);
+console.log("Doubled Array:", double);
+
+
+// 4. Use filter to get even numbers from an array
+
+let arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+let even = arr4.filter((num) => {
+    return num % 2 == 0;
+});
+
+console.log("Even Numbers:", even);
+
+
+// 5. Use reduce to find the sum of an array
+
+let arr5 = [10, 20, 30, 40, 50];
+
+let sum = arr5.reduce((total, num) => {
+    return total + num;
+}, 0);
+
+console.log("Sum of Array:", sum);
+
+
+// 6. Find the first number greater than 10
+
+let arr6 = [5, 8, 12, 15, 20, 25];
+
+let result = arr6.find((num) => {
+    return num > 10;
+});
+
+console.log("First Number Greater Than 10:", result);
+
+
+// 7. Check if array includes a specific value
+
+let arr7 = [10, 20, 30, 40, 50];
+
+let check = arr7.includes(30);
+
+if (check == true) {
+    console.log("Value is Present");
+} else {
+    console.log("Value is Not Present");
+}

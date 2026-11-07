@@ -1,0 +1,413 @@
+# JavaScript Assignment – All 10 Concepts
+
+## Complete HTML, CSS and JavaScript Program
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Assignment</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: darkblue;
+        }
+
+        .box {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        p {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>JavaScript Assignment</h1>
+
+<!-- 1. CLASS AND CONSTRUCTOR -->
+
+<div class="box">
+    <h2>1. Class and Constructor</h2>
+
+    <p>Class is a blueprint used to create objects.
+    Constructor is used to initialize object values.</p>
+
+    <button onclick="classExample()">Run Example</button>
+
+    <p id="output1"></p>
+</div>
+
+
+<!-- 2. REST, SPREAD AND DEFAULT PARAMETER -->
+
+<div class="box">
+    <h2>2. Rest Operator, Spread Operator and Default Parameter</h2>
+
+    <p>Rest collects multiple values into an array.
+    Spread expands array elements.
+    Default parameter provides a default value.</p>
+
+    <button onclick="operatorExample()">Run Example</button>
+
+    <p id="output2"></p>
+</div>
+
+
+<!-- 3. DOM EVENTS -->
+
+<div class="box">
+    <h2>3. DOM Events</h2>
+
+    <p>DOM events are actions performed by users on a webpage.</p>
+
+    <h3 id="demo">Hello World</h3>
+
+    <button onclick="changeText()">Click Me</button>
+</div>
+
+
+<!-- 4. INHERITANCE -->
+
+<div class="box">
+    <h2>4. Inheritance</h2>
+
+    <p>Inheritance allows one class to access another class properties and methods.</p>
+
+    <button onclick="inheritanceExample()">Run Example</button>
+
+    <p id="output4"></p>
+</div>
+
+
+<!-- 5. POLYMORPHISM -->
+
+<div class="box">
+    <h2>5. Polymorphism</h2>
+
+    <p>Polymorphism means one method name with different behaviours.</p>
+
+    <button onclick="polymorphismExample()">Run Example</button>
+
+    <p id="output5"></p>
+</div>
+
+
+<!-- 6. LOCAL STORAGE AND SESSION STORAGE -->
+
+<div class="box">
+    <h2>6. Local Storage and Session Storage</h2>
+
+    <p>Local storage saves data for a longer time.
+    Session storage saves data for the current tab session.</p>
+
+    <button onclick="storageExample()">Run Example</button>
+
+    <p id="output6"></p>
+</div>
+
+
+<!-- 7. EVENT LISTENER -->
+
+<div class="box">
+    <h2>7. Event Listener</h2>
+
+    <p>Event listener executes a function when an event occurs.</p>
+
+    <button id="eventBtn">Click Me</button>
+
+    <p id="output7"></p>
+</div>
+
+
+<!-- 8. CALLBACK FUNCTION -->
+
+<div class="box">
+    <h2>8. Callback Function</h2>
+
+    <p>Callback is a function passed as an argument to another function.</p>
+
+    <button onclick="callbackExample()">Run Example</button>
+
+    <p id="output8"></p>
+</div>
+
+
+<!-- 9. PROMISES -->
+
+<div class="box">
+    <h2>9. Promises</h2>
+
+    <p>Promise is used to handle asynchronous operations.</p>
+
+    <button onclick="promiseExample()">Run Example</button>
+
+    <p id="output9"></p>
+</div>
+
+
+<!-- 10. ASYNC AND AWAIT -->
+
+<div class="box">
+    <h2>10. Async and Await</h2>
+
+    <p>Async and Await are used to handle asynchronous operations easily.</p>
+
+    <button onclick="asyncExample()">Run Example</button>
+
+    <p id="output10"></p>
+</div>
+
+
+<script>
+
+// 1. CLASS AND CONSTRUCTOR
+
+class Student {
+
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    display() {
+        return "Name: " + this.name + "<br>Age: " + this.age;
+    }
+}
+
+function classExample() {
+
+    let s1 = new Student("Vijay", 21);
+
+    document.getElementById("output1").innerHTML =
+    s1.display();
+}
+
+
+// 2. REST, SPREAD AND DEFAULT PARAMETER
+
+function add(...numbers) {
+    return numbers;
+}
+
+function greet(name = "Student") {
+    return "Hello " + name;
+}
+
+function operatorExample() {
+
+    let a = [10, 20, 30];
+
+    let b = [...a, 40, 50];
+
+    document.getElementById("output2").innerHTML =
+    "Rest: " + add(10, 20, 30) +
+    "<br>Spread: " + b +
+    "<br>Default Parameter: " + greet();
+}
+
+
+// 3. DOM EVENTS
+
+function changeText() {
+
+    document.getElementById("demo").innerHTML =
+    "Welcome to JavaScript";
+
+}
+
+
+// 4. INHERITANCE
+
+class Animal {
+
+    eat() {
+        return "Animal is eating";
+    }
+}
+
+class Dog extends Animal {
+
+    bark() {
+        return "Dog is barking";
+    }
+}
+
+function inheritanceExample() {
+
+    let d1 = new Dog();
+
+    document.getElementById("output4").innerHTML =
+    d1.eat() + "<br>" + d1.bark();
+}
+
+
+// 5. POLYMORPHISM
+
+class AnimalSound {
+
+    sound() {
+        return "Animal makes a sound";
+    }
+}
+
+class DogSound extends AnimalSound {
+
+    sound() {
+        return "Dog barks";
+    }
+}
+
+class CatSound extends AnimalSound {
+
+    sound() {
+        return "Cat meows";
+    }
+}
+
+function polymorphismExample() {
+
+    let d = new DogSound();
+    let c = new CatSound();
+
+    document.getElementById("output5").innerHTML =
+    d.sound() + "<br>" + c.sound();
+}
+
+
+// 6. LOCAL STORAGE AND SESSION STORAGE
+
+function storageExample() {
+
+    localStorage.setItem("name", "Vijay");
+
+    sessionStorage.setItem("course", "JavaScript");
+
+    document.getElementById("output6").innerHTML =
+    "Local Storage: " + localStorage.getItem("name") +
+    "<br>Session Storage: " + sessionStorage.getItem("course");
+
+}
+
+
+// 7. EVENT LISTENER
+
+document.getElementById("eventBtn").addEventListener("click", function() {
+
+    document.getElementById("output7").innerHTML =
+    "Button Clicked Successfully";
+
+});
+
+
+// 8. CALLBACK FUNCTION
+
+function display(name) {
+
+    return "Hello " + name;
+
+}
+
+function student(callback) {
+
+    let name = "Vijay";
+
+    return callback(name);
+
+}
+
+function callbackExample() {
+
+    document.getElementById("output8").innerHTML =
+    student(display);
+
+}
+
+
+// 9. PROMISES
+
+function promiseExample() {
+
+    let promise = new Promise(function(resolve, reject) {
+
+        let success = true;
+
+        if (success) {
+            resolve("Task Completed Successfully");
+        }
+        else {
+            reject("Task Failed");
+        }
+
+    });
+
+    promise.then(function(result) {
+
+        document.getElementById("output9").innerHTML = result;
+
+    });
+
+    promise.catch(function(error) {
+
+        document.getElementById("output9").innerHTML = error;
+
+    });
+
+}
+
+
+// 10. ASYNC AND AWAIT
+
+function getData() {
+
+    return new Promise(function(resolve) {
+
+        resolve("Data Received Successfully");
+
+    });
+
+}
+
+async function asyncExample() {
+
+    let result = await getData();
+
+    document.getElementById("output10").innerHTML = result;
+
+}
+
+</script>
+
+</body>
+</html>
+```
+
+## How to Run
+
+1. Open VS Code.
+2. Create a file named `javascript_assignment.html`.
+3. Copy and paste the complete code.
+4. Save the file.
+5. Right-click and select **Open with Live Server** (or open the HTML

@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Loops Assignment</title>
+</head>
+<body>
+
+<h1>JavaScript Loops Assignment (12-20)</h1>
+
+<script>
+
+// 12. Factorial of a Given Number
+
+let n = Number(prompt("Enter a number for Factorial:"));
+let fact = 1;
+
+for (let i = 1; i <= n; i++) {
+    fact = fact * i;
+}
+
+document.write("<h3>12. Factorial</h3>");
+document.write("Factorial of " + n + " = " + fact + "<br>");
+
+
+// 13. Check Prime Number or Not
+
+let num = Number(prompt("Enter a number to check Prime:"));
+let i = 2;
+let count = 0;
+
+while (i < num) {
+    if (num % i == 0) {
+        count++;
+        break;
+    }
+    i++;
+}
+
+document.write("<h3>13. Prime Number</h3>");
+
+if (num <= 1) {
+    document.write(num + " is Not a Prime Number<br>");
+}
+else if (count == 0) {
+    document.write(num + " is a Prime Number<br>");
+}
+else {
+    document.write(num + " is Not a Prime Number<br>");
+}
+
+
+// 14. Print Prime Number Series
+
+let limit = Number(prompt("Enter limit for Prime Series:"));
+
+document.write("<h3>14. Prime Number Series</h3>");
+
+for (let j = 2; j <= limit; j++) {
+    let k = 2;
+    let prime = true;
+
+    while (k < j) {
+        if (j % k == 0) {
+            prime = false;
+            break;
+        }
+        k++;
+    }
+
+    if (prime == true) {
+        document.write(j + " ");
+    }
+}
+
+
+// 15. Check Armstrong Number or Not
+
+let arm = Number(prompt("Enter a number to check Armstrong:"));
+let temp = arm;
+let sum = 0;
+let digits = arm.toString().length;
+
+while (temp > 0) {
+    let rem = temp % 10;
+    sum = sum + (rem ** digits);
+    temp = Math.floor(temp / 10);
+}
+
+document.write("<h3>15. Armstrong Number</h3>");
+
+if (sum == arm) {
+    document.write(arm + " is an Armstrong Number<br>");
+}
+else {
+    document.write(arm + " is Not an Armstrong Number<br>");
+}
+
+
+// 16. Print Armstrong Number Series
+
+let max = Number(prompt("Enter limit for Armstrong Series:"));
+
+document.write("<h3>16. Armstrong Number Series</h3>");
+
+for (let x = 1; x <= max; x++) {
+
+    let temp = x;
+    let total = 0;
+    let digits = x.toString().length;
+
+    while (temp > 0) {
+        let rem = temp % 10;
+        total = total + (rem ** digits);
+        temp = Math.floor(temp / 10);
+    }
+
+    if (total == x) {
+        document.write(x + " ");
+    }
+}
+
+
+// 17. Fibonacci Series
+
+let terms = Number(prompt("Enter number of Fibonacci terms:"));
+
+let a = 0;
+let b = 1;
+let c;
+let f = 1;
+
+document.write("<h3>17. Fibonacci Series</h3>");
+
+do {
+    document.write(a + " ");
+    c = a + b;
+    a = b;
+    b = c;
+    f++;
+}
+while (f <= terms);
+
+
+// 18. Print 5 Table
+
+document.write("<h3>18. Multiplication Table of 5</h3>");
+
+for (let m = 1; m <= 10; m++) {
+    document.write(m + " * 5 = " + (m * 5) + "<br>");
+}
+
+
+// 19. Sum of Numbers (1 + 2 + 3 + ...)
+
+let last = Number(prompt("Enter last number for Sum:"));
+
+let s = 0;
+let q = 1;
+
+while (q <= last) {
+    s = s + q;
+    q++;
+}
+
+document.write("<h3>19. Sum of Numbers</h3>");
+document.write("Sum = " + s + "<br>");
+
+
+// 20. Palindrome or Not
+
+let word = prompt("Enter a word to check Palindrome:");
+let reverse = "";
+let p = word.length - 1;
+
+while (p >= 0) {
+    reverse = reverse + word[p];
+    p--;
+}
+
+document.write("<h3>20. Palindrome</h3>");
+
+if (word.toUpperCase() == reverse.toUpperCase()) {
+    document.write(word + " is a Palindrome<br>");
+}
+else {
+    document.write(word + " is Not a Palindrome<br>");
+}
+
+</script>
+
+</body>
+</html>

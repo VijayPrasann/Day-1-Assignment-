@@ -1,0 +1,240 @@
+
+import React, { useState } from "react";
+
+function App() {
+
+  // 1. Login Form
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginResult, setLoginResult] = useState("");
+
+  // 2. Student Details
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [department, setDepartment] = useState("");
+  const [studentShow, setStudentShow] = useState(false);
+
+  // 3. Course Selection
+  const [course, setCourse] = useState("");
+
+  // 4. Terms and Conditions
+  const [agree, setAgree] = useState(false);
+
+  // 5. Registration Form
+  const [regName, setRegName] = useState("");
+  const [email, setEmail] = useState("");
+  const [regPassword, setRegPassword] = useState("");
+  const [gender, setGender] = useState("");
+  const [regCourse, setRegCourse] = useState("");
+  const [regShow, setRegShow] = useState(false);
+
+  // Login Submit
+  function loginSubmit(e) {
+    e.preventDefault();
+    setLoginResult(username);
+  }
+
+  // Student Submit
+  function studentSubmit(e) {
+    e.preventDefault();
+    setStudentShow(true);
+  }
+
+  // Registration Submit
+  function registrationSubmit(e) {
+    e.preventDefault();
+    setRegShow(true);
+  }
+
+  return (
+    <div>
+
+      <h1>React Forms Assignment</h1>
+
+      {/* 1. Simple Login Form */}
+
+      <h2>1. Simple Login Form</h2>
+
+      <form onSubmit={loginSubmit}>
+        <input
+          type="text"
+          placeholder="Enter Username"
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <input
+          type="password"
+          placeholder="Enter Password"
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <button type="submit">Login</button>
+      </form>
+
+      <h3>Username: {loginResult}</h3>
+
+      <hr />
+
+      {/* 2. Student Details */}
+
+      <h2>2. Student Details</h2>
+
+      <form onSubmit={studentSubmit}>
+        <input
+          type="text"
+          placeholder="Enter Student Name"
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <input
+          type="number"
+          placeholder="Enter Age"
+          onChange={(e) => setAge(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <input
+          type="text"
+          placeholder="Enter Department"
+          onChange={(e) => setDepartment(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <button type="submit">Submit</button>
+      </form>
+
+      {studentShow && (
+        <div>
+          <h3>Student Information</h3>
+          <p>Name: {name}</p>
+          <p>Age: {age}</p>
+          <p>Department: {department}</p>
+        </div>
+      )}
+
+      <hr />
+
+      {/* 3. Course Selection */}
+
+      <h2>3. Course Selection</h2>
+
+      <select onChange={(e) => setCourse(e.target.value)}>
+        <option value="">Select Course</option>
+        <option value="React">React</option>
+        <option value=".NET">.NET</option>
+        <option value="Java">Java</option>
+      </select>
+
+      <h3>Selected Course: {course}</h3>
+
+      <hr />
+
+      {/* 4. Terms and Conditions */}
+
+      <h2>4. Terms and Conditions</h2>
+
+      <input
+        type="checkbox"
+        onChange={(e) => setAgree(e.target.checked)}
+      />
+
+      I Agree to Terms and Conditions
+
+      <br /><br />
+
+      <button disabled={!agree}>Submit</button>
+
+      <hr />
+
+      {/* 5. Registration Form */}
+
+      <h2>5. Registration Form</h2>
+
+      <form onSubmit={registrationSubmit}>
+
+        <input
+          type="text"
+          placeholder="Enter Name"
+          onChange={(e) => setRegName(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <input
+          type="email"
+          placeholder="Enter Email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <input
+          type="password"
+          placeholder="Enter Password"
+          onChange={(e) => setRegPassword(e.target.value)}
+          required
+        />
+
+        <br /><br />
+
+        <label>Gender:</label>
+
+        <select
+          onChange={(e) => setGender(e.target.value)}
+          required
+        >
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <br /><br />
+
+        <label>Course:</label>
+
+        <select
+          onChange={(e) => setRegCourse(e.target.value)}
+          required
+        >
+          <option value="">Select Course</option>
+          <option value="React">React</option>
+          <option value="Java">Java</option>
+          <option value=".NET">.NET</option>
+        </select>
+
+        <br /><br />
+
+        <button type="submit">Register</button>
+
+      </form>
+
+      {regShow && (
+        <div>
+          <h3>Registration Details</h3>
+          <p>Name: {regName}</p>
+          <p>Email: {email}</p>
+          <p>Gender: {gender}</p>
+          <p>Course: {regCourse}</p>
+        </div>
+      )}
+
+    </div>
+  );
+}
+
+export default App;
